@@ -1,11 +1,11 @@
 var firebaseConfig = {
-  apiKey: "",
-  authDomain: "testkwitter.firebaseapp.com",
-  databaseURL: "https://testkwitter.firebaseio.com",
-  projectId: "testkwitter",
-  storageBucket: "testkwitter.appspot.com",
-  messagingSenderId: "624653701634",
-  appId: "1:624653701634:web:2cb9a8bd873f17d92d8d1b"
+  apiKey: "AIzaSyDCKd9OXejZ-0PK729riphOd6Z1KgrzjCo",
+  authDomain: "letschattestbranch.firebaseapp.com",
+  databaseURL: "https://letschattestbranch-default-rtdb.firebaseio.com/",
+  projectId: "letschattestbranch",
+  storageBucket: "letschattestbranch.appspot.com",
+  messagingSenderId: "1048525961569",
+  appId: "1:1048525961569:web:83583f3ab3a726da266d20"
 };
 
 
