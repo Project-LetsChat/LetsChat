@@ -12,9 +12,20 @@ firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
 
-user_name = localStorage.getItem("user_name");
+// Function to safely escape HTML characters
+function escapeHTML(html) {
+  var element = document.createElement('div');
+  if (html) {
+      element.innerText = html;
+      return element.innerHTML;
+  }
+  return '';
+}
 
-document.getElementById("user_name").innerHTML = "Welcome " + user_name + "!";
+let user_name = localStorage.getItem("user_name");
+let escaped_user_name = escapeHTML(user_name);
+
+document.getElementById("user_name").innerHTML = "Welcome " + escaped_user_name + "!";
 
 function addRoom()
 {
