@@ -1,5 +1,5 @@
 var firebaseConfig = {
-  apiKey: "AIzaSyBQyjrjTsIQsGMGcgu-cr1HjszcHi5ZWMk",
+  apiKey: "",
   authDomain: "testkwitter.firebaseapp.com",
   databaseURL: "https://testkwitter.firebaseio.com",
   projectId: "testkwitter",
