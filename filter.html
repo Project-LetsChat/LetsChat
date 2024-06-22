@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Realtime Filter Webapp using PoseNet Neural Network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="filter.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+</head>
+
+<!--
+Navigation bar code here
+-->
+<nav class="navbar-inverse my_nav_bar">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<span class="icon-bar">
+  
+			</span>
+			<span class="icon-bar">
+				
+			</span>
+			<span class="icon-bar">
+				
+			</span>
+			
+		</button>
+		<a class="navbar-brand" href="LetsChat_room.html">
+			LetsChat
+		</a>
+		<!--Menu-->
+		<!--List of Menus
+		School name
+  
+  Campus life
+  
+  Achievements
+  
+  What’s New
+  
+  Contact us
+  -->
+	</div>
+	<div class="collapse navbar-collapse" id="myNavbar">
+		<ul class="nav navbar-nav">
+			<li><a href="extra.html">Experiments</a></li>
+			<li><a href="filter.html">Realtime Filters</a></li>
+			<li><a href="#whatsnew">  </a></li>
+			<li><a href="#contact"> </a></li>
+		</ul>
+	</div>
+</nav>
+
+
+<body background="filter_background.jpg">
+  <center>
+    <h3 class="btn btn-info">Realtime Filter</h3>
+    <br>
+    <br>
+    <button onclick="take_snapshot()" class="btn btn-success">Take Snapshot</button>
+  </center>
+
+<script src="filter.js"></script>
+</body>
+
+</html>
