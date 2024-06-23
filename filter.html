@@ -1,72 +1,92 @@
+<!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <title>Realtime Filter Webapp using PoseNet Neural Network</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="filter.css">
+  <link rel="stylesheet" type="text/css" href="filter.css">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
-  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js" integrity="sha384-urFtxiEFx5xSpkMAumV32IDrKwcd3euukfwelMZ9AhDfTHLCrKnTsKHtwxIogq+c" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js" integrity="sha384-W17d0DmzKBSMPRJT3I8IVkb9FlReI81N9t1Dvj8+p5qWi7U3JT4K2zpFj3j/cEMN" crossorigin="anonymous"></script>
 </head>
 
-<!--
-Navigation bar code here
--->
-<nav class="navbar-inverse my_nav_bar">
-	<div class="navbar-header">
-		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-			<span class="icon-bar">
-  
-			</span>
-			<span class="icon-bar">
-				
-			</span>
-			<span class="icon-bar">
-				
-			</span>
-			
-		</button>
-		<a class="navbar-brand" href="LetsChat_room.html">
-			LetsChat
-		</a>
-		<!--Menu-->
-		<!--List of Menus
-		School name
-  
-  Campus life
-  
-  Achievements
-  
-  What’s New
-  
-  Contact us
-  -->
+<body>
+  <nav class="navbar-inverse my_nav_bar">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="LetsChat_room.html">LetsChat</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="extra.html">Experiments</a></li>
+        <li><a href="filter.html">Realtime Filters</a></li>
+        <li><a href="#whatsnew"> </a></li>
+        <li><a href="#contact"> </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+	<div class="center-content">
+	  <h3 class="btn btn-info">Realtime Filter</h3>
 	</div>
-	<div class="collapse navbar-collapse" id="myNavbar">
-		<ul class="nav navbar-nav">
-			<li><a href="extra.html">Experiments</a></li>
-			<li><a href="filter.html">Realtime Filters</a></li>
-			<li><a href="#whatsnew">  </a></li>
-			<li><a href="#contact"> </a></li>
-		</ul>
+  
+	<div class="center-content">
+	  <button onclick="take_snapshot()" class="btn btn-success">Take Snapshot</button>
 	</div>
-</nav>
+	
+	<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
+  <div class="camera-container">
+	<div id="camera">
+	  <!-- Your camera script (filter.js) goes here -->
+	   <script src="filter.js"></script>
+	</div>
+  </div>
 
-<body background="filter_background.jpg">
-  <center>
-    <h3 class="btn btn-info">Realtime Filter</h3>
-    <br>
-    <br>
-    <button onclick="take_snapshot()" class="btn btn-success">Take Snapshot</button>
-  </center>
+  
+	
+  </div>
 
-<script src="filter.js"></script>
+  <!--<br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>-->
+
+  
+  
 </body>
 
 </html>
