@@ -21,5 +21,6 @@ This project is licensed under the terms of the LGPL-2.1 on GitHub and LGPL-3.0 
 
 Please refer to the respective LICENSE files for detailed information.
 
+<br>
 
 If you want to contribute, check out the <a href="CONTRIBUTING.md">guide</a>.
