@@ -10,14 +10,14 @@ Current goals: Add more basic features out of the box so that it doesn't take ex
 1. Change the backend server with your backend server.
 2. This is made to be as customisable and easy to tweak as it can be, so tweak all you want.
 
-#### NOTE: Before interacting with the project read the <a href="the-foss-code-of-conduct.org">Code of Conduct</a>.
+#### NOTE: Before interacting with the project read the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>.
 
 ## Licensing
 
-This project is licensed under the terms of the LGPL-2.1 on GitHub and LGPL-3.0 on SourceForge.
+This project is licensed under the terms of the LGPL-2.1 on GitHub.
 
 - GitHub: Licensed under the [LGPL-2.1](LICENSE).
-- SourceForge: Licensed under the [LGPL-3.0](https://opensource.org/license/lgpl-3-0).
+
 
 Please refer to the respective LICENSE files for detailed information.
 
