@@ -4,9 +4,9 @@ LetsChat is a base that can be built upon to create a social media platform.
 If you find a bug make a Pull request that fixes the bug or file an Issue.
 
 Current goals: 
-Make an example instance.
-Add more basic features out of the box so that implementing those features in forks doesn't take extra time.
-Release version 6.0 which would feature full Realtime Filters integration.
+1. Make an example instance.
+2. Add more basic features out of the box so that implementing those features in forks doesn't take extra time.
+3. Release version 6.0 which would feature full Realtime Filters integration.
 
 ## Instructions to Implement:
 
