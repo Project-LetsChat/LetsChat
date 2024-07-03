@@ -12,7 +12,7 @@ Current goals:
 1. Change the backend server with your backend server.
 2. This is made as customisable and easy to tweak as possible, so tweak all you want.
 
-<a href="https://github.com/BhargavEkbote/NeoChat.git">NeoChat</a> is developed by me and is an example/proof-of-concept of how to build a social media website using the LetsChat library, you can use it as a reference for your project if you are looking for one but I suggest you to use your creativity.
+<a href="https://github.com/BhargavEkbote/NeoChat.git">NeoChat</a> is developed by me and is a great example/proof-of-concept of how to build a social media website using LetsChat, you can use it as a reference for your project if you are looking for one but I suggest you to use your creativity.
 
 #### NOTE: Before interacting with the project read the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>.
 
@@ -23,7 +23,7 @@ This project is licensed under the terms of the LGPL-2.1 on GitHub.
 - GitHub: Licensed under the [LGPL-2.1](LICENSE).
 
 
-Please refer to the respective LICENSE files for detailed information.
+Please take a look at the respective LICENSE files for detailed information.
 
 <br>
 
