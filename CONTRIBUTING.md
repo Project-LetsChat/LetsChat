@@ -26,8 +26,7 @@ Simple Setup Instructions:
 2. Navigate to the project directory:
 <code>cd LetsChat</code>
 
-3. Install a code editor (if not installed):
-<code>sudo snap install code --classic</code>
+3. Install a code editor (if not installed)
 
 4. Start building and modifying the library to suit your needs.
 
