@@ -5,10 +5,6 @@ If you find a bug make a Pull request that fixes the bug or file an Issue.
 
 Use the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/">LetsChat Wiki</a> for all the information available regarding LetsChat.
 
-Current goals: 
-1. Add more basic features out of the box so that implementing those features in forks doesn't take extra time.
-2. Release version 6.0 which would feature full Realtime Filters integration.
-
 ## Instructions to Implement:
 
 1. Change the backend server with your backend server, go to the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/How-to-use-LetsChat">How to use LetsChat</a> page on the <a href="https://github.com/BhargavEkbote/LetsChat/wiki">LetsChat Wiki</a> for more details.
