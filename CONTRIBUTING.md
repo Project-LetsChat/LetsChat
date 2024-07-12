@@ -28,7 +28,7 @@ Simple Setup Instructions:
 
 3. Install a code editor (if not installed)
 
-4. Start building and modifying the library to suit your needs.
+4. Start building and modifying LetsChat to suit your needs.
 
 ## Contributor License Agreement (CLA)
 
