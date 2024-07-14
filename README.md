@@ -1,13 +1,19 @@
 # Lets-Chat
 LetsChat is a base that can be built upon to create a social media platform.
 
+This project is licensed under the LGPL-2.1, which means any modifications must be licensed under the same terms. This project is a fork of a project licensed under the Apache License 2.0 and has been relicensed under the LGPL-2.1.
+
 If you find a bug make a Pull request that fixes the bug or file an Issue.
+
+A more stripped-down version of the web framework is being developed under the PREVIOUS branch, it is not ready and is more of a test to see how much less code there can be while still keeping some of the basic features intact.
+
+You can check out the more stripped-down version's source code <a href="https://github.com/BhargavEkbote/LetsChat/tree/PREVIOUS/LetsChatLITE/lite">here</a>.
 
 Use the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/">LetsChat Wiki</a> for all the information available regarding LetsChat.
 
 ## Instructions to Implement:
 
-1. Change the backend server with your backend server, go to the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/How-to-use-LetsChat">How to use LetsChat</a> page on the <a href="https://github.com/BhargavEkbote/LetsChat/wiki">LetsChat Wiki</a> for more details.
+1. Add a backend server, go to the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/How-to-use-LetsChat">How to use LetsChat</a> page on the <a href="https://github.com/BhargavEkbote/LetsChat/wiki">LetsChat Wiki</a> for more details.
 2. This is made as customisable and easy to tweak as possible, so tweak all you want.
 
 <a href="https://bhargavekbote.github.io/NeoChat/">NeoChat</a> is developed by me and is a great example/proof-of-concept of how to build a social media website on top of LetsChat, you can use it as a reference for your project if you are looking for one but I suggest you to use your creativity.
