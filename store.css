@@ -34,6 +34,7 @@ main {
     margin: 1rem;
     padding: 1rem;
     width: 300px;
+    cursor: pointer;
 }
 
 .plugin-card h2 {
@@ -43,6 +44,17 @@ main {
 
 .plugin-card p {
     color: #555;
+}
+
+.plugin-detail {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 600px;
 }
 
 footer {
