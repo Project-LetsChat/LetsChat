@@ -4,7 +4,7 @@
 
 -   VERSION: 1.0
 -   DATE: April 23, 2021
--   AUTHOR: Derek Taylor
+-   AUTHOR: Derek Taylor (Edited by Bhargav Ekbote)
 
 This code of conduct is written to guide an individual\'s choices and
 actions within the free and open-source software (FOSS) community. This
