@@ -1,7 +1,7 @@
 # Lets-Chat
 LetsChat is a base that can be built upon to create a social media platform.
 
-  This project is licensed under the MPL, which means any modifications must be licensed under the same terms. 
+  This project is licensed under the LGPL-2.1, which means any modifications must be licensed under the same terms. 
 
 If you find a bug make a Pull request that fixes the bug or file an Issue.
 
@@ -24,9 +24,9 @@ Use the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/">LetsChat Wiki<
 
 ## Licensing
 
-This project is licensed under the terms of the MPL on GitHub.
+This project is licensed under the terms of the LGPL-2.1 on GitHub.
 
-- GitHub: Licensed under the [MPL](LICENSE).
+- GitHub: Licensed under the [LGPL-2.1](LICENSE).
 
 
 Please take a look at the respective LICENSE files for detailed information.
