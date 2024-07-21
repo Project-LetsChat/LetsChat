@@ -24,9 +24,9 @@ Use the <a href="https://github.com/BhargavEkbote/LetsChat/wiki/">LetsChat Wiki<
 
 ## Licensing
 
-This project is licensed under the terms of the LGPL-2.1 on GitHub.
+This project is licensed under the terms of the MPL on GitHub.
 
-- GitHub: Licensed under the [LGPL-2.1](LICENSE).
+- GitHub: Licensed under the [MPL](LICENSE).
 
 
 Please take a look at the respective LICENSE files for detailed information.
