@@ -30,12 +30,4 @@ Simple Setup Instructions:
 
 5. Submit a pull request.
 
-## Contributor License Agreement (CLA)
-
-Thank you for considering contributing to our project!
-
-Before we can accept your contributions, we require that you sign our Contributor License Agreement (CLA). This ensures that we have the right to distribute your contributions under the project’s license (LGPL-2.1).
-
-Please follow the link to sign the CLA: [Sign the CLA](https://cla-assistant.io/BhargavEkbote/LetsChat)
-
 If you have any questions, feel free to contact us.
