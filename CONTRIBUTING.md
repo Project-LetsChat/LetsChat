@@ -1,6 +1,6 @@
 ## Contribution Guidelines
 
-We welcome contributions from everyone. By contributing to this project, you agree to license your changes under the same license as the project (LGPL-2.1).
+We welcome contributions from everyone. By contributing to this project, you agree to license your changes under the same license as the project (MPL-2.0).
 
 Simple Setup Instructions:
 
