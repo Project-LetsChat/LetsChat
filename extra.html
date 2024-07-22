@@ -18,32 +18,28 @@
  */-->
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>LetsChat Room Page</title>
-<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
-<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiments</title>
+    <link rel="stylesheet" href="style.css">
+    
 
-<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="style.css">
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-  
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 
 </head>
 <body>
 
-	<!--
+    <!--
 Navigation bar code here
 -->
 <nav class="navbar-inverse my_nav_bar">
@@ -78,45 +74,23 @@ Navigation bar code here
 	</div>
 	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
+			<li><a href="extra.html">Experiments</a></li>
 			<li><a href="filter.html">Realtime Filters</a></li>
-			<li><a href="https://bhargavekbote.github.io/plugin-store/">Plugin Store</a></li>
 			<li><a href="#whatsnew">  </a></li>
 			<li><a href="#contact"> </a></li>
 		</ul>
 	</div>
 </nav>
-  
-  
-	
 
+    <center>
+        
+        <section id="calc">
+            <h1>Calculation Tools</h1>
+            <div class="line"></div>
+            <iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/AAWmiRqD-ffYgW0SNgfW58M34ACNbW_eEKR0vJA66Y4/embed"></iframe>
+			<iframe width="392" height="620" style="border: 0px;" src="https://studio.code.org/projects/applab/u9qj-Ll6AU54EkIuHDpywCYePzNsaBIapf94bIrs0lo/embed"></iframe>
+        </section>
 
-<div class="container">
-	<button id="logout" onclick="logout();" class="glyphicon glyphicon-log-out btn btn-danger">Logout</button>
-
-	<center>
-		<h1  class="header">	
-			LetsChat	
-			<sup>
-				<img src="m2.png">
-			</sup>
-		</h1>
-		<h3 id="user_name" class="color_white"></h3>
-
-		<div class="form-group input_div_room_page">
-			<label>#Add Room:</label>
-			<input type="text" id="room_name" class="form-control" placeholder="#Room Name">
-		</div>
-		
-		<button onclick="addRoom();" class="btn btn-success">#Add Room</button>
-
-		<h3 class="color_white">#TRENDINGROOMS</h3>
-
-		<div id="output"></div>
-		
-	</center>
-</div>
-
-
-<script src="LetsChat_room.js"></script>
+    </center>
 </body>
 </html>
