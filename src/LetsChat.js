@@ -13,4 +13,3 @@ function addUser() {
   
     window.location = "LetsChat_room.html";
 }
-
