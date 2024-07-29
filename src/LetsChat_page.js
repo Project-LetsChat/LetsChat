@@ -23,6 +23,9 @@ room_name = localStorage.getItem("room_name");
 // Function to send message
 function send() {
   msg = document.getElementById("msg").value;
+  // Sanitize message before sending
+  msg = sanitizeHTML(msg);
+
   firebase.database().ref(room_name).push({
     name: user_name,
     message: msg,
@@ -47,22 +50,23 @@ function getData() {
       childKey = childSnapshot.key;
       childData = childSnapshot.val();
       if (childKey != "purpose") {
-        firebase_message_id = childKey;
+        firebase_message_id = sanitizeHTML(childKey);
         message_data = childData;
 
         console.log(firebase_message_id);
-        console.log(message_data);
-
-        // Sanitize user inputs
-        var name = sanitizeHTML(message_data['name']);
-        var message = sanitizeHTML(message_data['message']);
-        var like = sanitizeHTML(String(message_data['like']));
+        // Sanitize message data before logging
+        var sanitized_message_data = {
+          name: sanitizeHTML(message_data['name']),
+          message: sanitizeHTML(message_data['message']),
+          like: sanitizeHTML(String(message_data['like']))
+        };
+        console.log(sanitized_message_data);
 
         // Construct HTML tags with sanitized inputs
-        var name_with_tag = "<h4>" + name + "<img class='user_tick' src='tick.png'></h4>";
-        var message_with_tag = "<h4 class='message_h4'>" + message + "</h4>";
-        var like_button = "<button class='btn btn-warning' id=" + firebase_message_id + " value=" + like + " onclick='updateLike(this.id)'>";
-        var span_with_tag = "<span class='glyphicon glyphicon-thumbs-up'>Like: " + like + "</span></button><hr>";
+        var name_with_tag = "<h4>" + sanitized_message_data.name + "<img class='user_tick' src='tick.png'></h4>";
+        var message_with_tag = "<h4 class='message_h4'>" + sanitized_message_data.message + "</h4>";
+        var like_button = "<button class='btn btn-warning' id=" + firebase_message_id + " value=" + sanitized_message_data.like + " onclick='updateLike(this.id)'>";
+        var span_with_tag = "<span class='glyphicon glyphicon-thumbs-up'>Like: " + sanitized_message_data.like + "</span></button><hr>";
 
         // Combine the constructed tags into a row
         var row = name_with_tag + message_with_tag + like_button + span_with_tag;

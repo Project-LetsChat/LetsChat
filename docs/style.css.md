@@ -2,7 +2,6 @@
 
 These are the files that are currently linked to <code>style.css</code>:
 
-* <code>extra.html</code>
 * <code>index.html</code>
 * <code>LetsChat_page.html</code>
 * <code>LetsChat_room.html</code>
