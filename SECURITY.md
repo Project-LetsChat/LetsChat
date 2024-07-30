@@ -6,7 +6,7 @@ The latest version is the only currently supported version, 6.0 is the newest ma
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 6.0.1   | :white_check_mark: |
+| 6.0.2   | :white_check_mark: |
 | 5.0.x   | :x:                |
 | 4.0.x   | :x:                |
 | < 4.0   | :x:                |

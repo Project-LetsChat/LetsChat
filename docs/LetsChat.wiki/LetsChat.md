@@ -1,0 +1,1 @@
+LetsChat is a web framework using which a social media platform can be built, it is very flexible and customisable. LetsChat is primarily a hobby project and is given "as is". The newest version is the only version that gets bug fixes and security patches, if you want to use an older version for the sake of stability then that is entirely on you.
