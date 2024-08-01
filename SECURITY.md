@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-The latest version is the only currently supported version, 6.0 is the newest major version while 6.0.1 is the "latest" version.
+The latest version is the only currently supported version, 6.0 is the newest major version while 6.0.2 is the "latest" version.
 
 | Version | Supported          |
 | ------- | ------------------ |
