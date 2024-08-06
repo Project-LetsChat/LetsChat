@@ -4,7 +4,7 @@
 
 -   VERSION: 1.0
 -   DATE: April 23, 2021
--   AUTHOR: Derek Taylor
+-   AUTHOR: Derek Taylor (Edited by Bhargav Ekbote)
 
 This code of conduct is written to guide an individual\'s choices and
 actions within the free and open-source software (FOSS) community. This
@@ -87,7 +87,7 @@ time. When someone is committed to being a victim, everyone else is to
 blame, and there is no hope whatsoever for this person. The
 victim only has one cause--themself. Some victims prefer to play the
 role of martyr. They often pick fights to lose--to be the
-victim, to be the martyr. Martyrdom is often used by weaklings who
+victim or the martyr. Martyrdom is often used by weaklings who
 cannot admit defeat or admit that they were wrong. If you are in a
 situation where martyrdom is your only course of action, then you are
 probably championing the wrong cause. Victim mentality and
@@ -141,9 +141,9 @@ interaction, public or private, with the community for a specified time.
 
 ## 4. Permanent Ban
 
-A permanent ban is appropriate when the member being disciplined has
+A permanent ban is appropriate when the disciplined member has
 proven that he cannot abide by the Code of Conduct. The member being
-disciplined is banned from any kind of interaction, public or private,
+disciplined is banned from any interaction, public or private,
 with the community. This ban is permanent and irrevocable.
 
 # SUGGESTED READING
