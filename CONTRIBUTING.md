@@ -7,7 +7,7 @@ Simple Setup Instructions:
 ## Getting Started
 
 1. Clone the repository:
-<code>git clone https://github.com/BhargavEkbote/LetsChat.git</code>
+<code>git clone https://github.com/Project-LetsChat/LetsChat.git/</code>
 
 2. Navigate to the project directory:
 <code>cd LetsChat</code>

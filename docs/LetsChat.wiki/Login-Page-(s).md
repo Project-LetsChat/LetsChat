@@ -34,14 +34,14 @@ The login page is usually located in the index.html file, the default one can be
 
 #### Custom Login Page Template
 
-LetsChat has a page located in the <code>PREVIOUS</code> branch under the <code>Foundation</code> directory and in the <code>early1</code> sub-directory that can be used as a template for building a custom login page. You can find it <a href="https://github.com/BhargavEkbote/LetsChat/blob/PREVIOUS/Foundation/early1/early/index.html/">here</a>.
+LetsChat has a page located in the <code>PREVIOUS</code> branch under the <code>Foundation</code> directory and in the <code>early1</code> sub-directory that can be used as a template for building a custom login page. You can find it <a href="https://github.com/Project-LetsChat/LetsChat/blob/PREVIOUS/Foundation/early1/early/index.html/">here</a>.
 
 #### Customise the custom login page (Optional):
 
-1. Link your custom <code>index.html</code> to the universal <code><a href="https://github.com/BhargavEkbote/LetsChat/wiki/style.css/">style.css</a></code> file:
+1. Link your custom <code>index.html</code> to the universal <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/style.css/">style.css</a></code> file:
 ```HTML
 <link rel="stylesheet" href="style.css">
 ```
 This will make the page aligned with all the rest of the pages.
 
-2. Create and attach a custom <code>.css</code> file to your custom login page, if you have linked the universal <code><a href="https://github.com/BhargavEkbote/LetsChat/wiki/style.css/">style.css</a></code> file to your custom login page then make sure that your custom <code>.css</code> file is compatible with the universal <code><a href="https://github.com/BhargavEkbote/LetsChat/wiki/style.css/">style.css</a></code> file or else it might break the styling.
+2. Create and attach a custom <code>.css</code> file to your custom login page, if you have linked the universal <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/style.css/">style.css</a></code> file to your custom login page then make sure that your custom <code>.css</code> file is compatible with the universal <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/style.css/">style.css</a></code> file or else it might break the theming.

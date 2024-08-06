@@ -1,7 +1,6 @@
 This will guide you in getting the code and building upon it.
 
-1. Clone the repository:
-<code>git clone https://github.com/BhargavEkbote/LetsChat.git</code>
+1. Download the latest <a href="https://github.com/Project-LetsChat/LetsChat/releases/">release</a>.
 
 2. Open the folder in your text editor of choice.
 

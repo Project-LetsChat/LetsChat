@@ -1,0 +1,174 @@
+<html>
+   <head>
+      <title>LetsChat</title>
+      <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+<script src="LetsChat.js"></script>
+   </head>
+   
+<style>
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: #e6e6fa;
+}
+
+.container {
+   display: flex;
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 20px;
+   background: #fff;
+   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+   border-radius: 10px;
+}
+
+.header {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 50%;
+   height: 100vh;
+   background: #9370db;
+   color: #fff;
+   text-align: center;
+}
+
+.logo {
+   font-size: 3em;
+   font-weight: bold;
+   margin-bottom: 10px;
+   color: #fff;
+   background: #663399;
+   padding: 10px;
+   border-radius: 5px;
+}
+
+.tagline {
+   font-size: 1.5em;
+   margin-bottom: 20px;
+}
+
+.nav {
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+   margin-bottom: 20px;
+}
+
+.nav a {
+   color: #fff;
+   text-decoration: none;
+   font-size: 1.2em;
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 50%;
+   height: 100vh;
+   background: #fff;
+   color: #663399;
+   text-align: center;
+}
+
+.signup {
+   font-size: 2em;
+   margin-bottom: 20px;
+}
+
+.signup form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+}
+
+.signup input {
+   margin-bottom: 20px;
+   padding: 10px;
+   font-size: 1.2em;
+   border: none;
+   border-radius: 5px;
+   box-shadow: 0 10px 50px rgba(0, 0, 0, 0.1);
+}
+
+.signup button {
+   padding: 10px 20px;
+   font-size: 1.2em;
+   border: none;
+   border-radius: 5px;
+   background: #9370db;
+   color: #fff;
+   cursor: pointer;
+}
+
+.footer {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   width: 100%;
+   margin-top: 20px;
+}
+
+.footer a {
+   color: #fff;
+   text-decoration: none;
+   font-size: 1.2em;
+}
+
+.arrow {
+   font-size: 2em;
+   color: #663399;
+   cursor: pointer;
+}
+
+.arrow:hover {
+   color: #9370db;
+}
+</style>
+<body>
+   <div class="container">
+       <div class="header">
+           <div class="logo">⚛️ LetsChat</div>
+           <div class="tagline">See what is happening in the world right now</div>
+           <div class="nav">
+               <!--<a href="#">⚛️</a>
+               <a href="#">⚛️</a>
+               <a href="#">⚛️</a>-->
+           </div>
+       </div>
+       <div class="content">
+           <div class="signup">
+               <form>
+                   <h2>User Name:</h2>
+                   <input type="text" placeholder="User Name" id="user_name">
+                   <!--<input type="email" placeholder="Email">-->
+                   <button type="button" onclick="addUser()">Login</button>
+                   
+               </form>
+           </div>
+           <div class="footer">
+               <div class="logo">⚛️ Join LetsChat today</div>
+               <!--<div class="arrow">&#10095;</div>-->
+           </div>
+       </div>
+   </div>
+</body>
+</html>

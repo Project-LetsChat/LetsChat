@@ -1,0 +1,57 @@
+<!--/* LetsChat - A social media platform framework
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */-->
+
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>LetsChat</title>
+
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&amp;display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="LetsChat.js"></script>
+</head>
+<body>
+
+<center>
+	<h1 class="header">	
+		LetsChat	<sup>
+	<img src="m2.png">
+	</sup>
+</h1>
+
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11 login_div">
+
+	<img src="logo.png" class="logo">
+		<h3 >See what is happening in the world right now</h3>
+
+		<h4 >Join LetsChat today</h4>
+		
+		<div class="form-group">
+		  <label >User Name:</label>
+		 <input type="text" id="user_name" class="form-control" placeholder="User Name">
+		</div>
+
+		<button id="login_button" class="btn btn-primary" onclick="addUser()">Log in</button>
+		<br><br>
+	</div>
+</center>
+
+
+
+</body>
+</html>
