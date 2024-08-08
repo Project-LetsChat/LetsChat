@@ -1,0 +1,122 @@
+<!--/* LetsChat - A social media platform framework
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */-->
+
+<html>
+   <title>LetsChat</title>
+   <script src="LetsChat.js"></script>
+<style>
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   height: 100vh;
+   color: #555;
+}
+
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 80%;
+   padding: 20px;
+   background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+   border-radius: 50px;
+}
+
+.logo {
+   font-size: 2em;
+   font-weight: bold;
+   color: #f64f59;
+}
+
+nav button {
+   margin: 0 10px;
+   padding: 10px;
+   border: none;
+   border-radius: 20px;
+   background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+   color: #fff;
+}
+
+.login-form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   width: 80%;
+   padding: 20px;
+   background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+   border-radius: 50px;
+}
+
+.login-form h2 {
+   font-size: 2em;
+   margin-bottom: 20px;
+}
+
+.login-form p {
+   font-size: 1em;
+   margin-bottom: 20px;
+}
+
+.login-form input {
+   margin: 10px;
+   padding: 10px;
+   border: none;
+   border-radius: 20px;
+}
+
+.login-form button {
+   margin: 20px;
+   padding: 20px;
+   border: none;
+   border-radius: 20px;
+   background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+   color: #fff;
+}
+
+/*.login-form::before {
+   content: "";
+   position: absolute;
+   top: 50px;
+   right: 50px;
+   width: 200px;
+   height: 200px;
+   background: linear-gradient(to right, #f64f59, #c471ed, #12c2e9);
+   border-radius: 50px;
+   z-index: -1;
+}*/
+</style>
+<body>
+   <!--<header>
+       <div class="logo">🍦 LetsChat</div>
+       <nav>
+           <button></button>
+           <button></button>
+           <button></button>
+           <button></button>
+       </nav>
+   </header>-->
+   <main>
+       <section class="login-form">
+           <h2>Login</h2>
+           <p>Welcome back! Login to access the LetsChat Platform.</p>
+           <!--<p>Did you forget your password?</p>-->
+           <form>
+               <input type="text" id="user_name" placeholder="Username">
+               <!--<input type="password" placeholder="Password">-->
+               <button type="button" onclick="addUser()">Login</button>
+           </form>
+           <!--<button>➡ CONTINUE</button>-->
+       </section>
+   
+</body>
+</html>
