@@ -1,4 +1,6 @@
 <html>
+    <title>LetsChat</title>
+    <script src="LetsChat.js"></script>
 <style>
 body {
    font-family: Arial, sans-serif;
@@ -93,14 +95,14 @@ button {
 <body>
    <div class="container">
        <div class="left-column">
-           <h1>Welcome to Co.Infinity</h1>
-           <p>Log in to get in the moment updates on the things that interest you.</p>
-           <form>
-               <input type="text" placeholder="Username">
-               <input type="password" placeholder="Password">
-               <button>Sign In</button>
-           </form>
-           <form>
+           <h1>Welcome to LetsChat</h1>
+           <p>Log in to get updates on the things that interest you.</p>
+           
+               <input type="text" id="user_name" placeholder="Username">
+               <!--<input type="password" placeholder="Password">-->
+               <button onclick="addUser()">Sign In</button>
+           
+           <!--<form>
                <input type="text" placeholder="Don't have an account? Sign Up Now">
                <button>Sign Up</button>
            </form>
@@ -114,7 +116,7 @@ button {
        <div class="right-column">
            <h2>Latest Posts</h2>
            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec tortor. Proin efficitur leo vel ex aliquam ullamcorper aenean ut pretium ligula.</p>
-       </div>
+       </div>-->
    </div>
 </body>
 </html>
