@@ -1,95 +1,57 @@
+<!--/* LetsChat - A social media platform framework
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */-->
+
+<!DOCTYPE html>
 <html>
-    <title>LetsChat</title>
-    <script src="LetsChat.js"></script>
-<style>
-body {
-   font-family: Arial, sans-serif;
-   margin: 0;
-   padding: 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   background: linear-gradient(to right, #003366, #0066cc);
-   color: white;
-}
+<head><meta charset="utf-8">
+	<title>LetsChat</title>
 
-.header {
-   text-align: center;
-   font-size: 3em;
-   margin: 20px;
-}
+<link href="https://fonts.googleapis.com/css?family=Yeon+Sung&amp;display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
 
-.content {
-   text-align: center;
-   font-size: 1.5em;
-   margin: 20px;
-}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
-.signup-form {
-   text-align: center;
-   font-size: 1.2em;
-   margin: 20px;
-}
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js"></script>
 
-.footer {
-   text-align: center;
-   font-size: 1.5em;
-   margin: 20px;
-}
-
-.social-media {
-   text-align: center;
-   font-size: 2em;
-   margin: 20px;
-}
-
-.signup-form input[type="text"], .signup-form input[type="password"] {
-   width: 100%;
-   padding: 10px;
-   margin: 10px 0;
-}
-
-.signup-form input[type="submit"] {
-   width: 50%;
-   padding: 10px;
-   background: linear-gradient(to right, #003366, #0066cc);
-   color: white;
-   border: none;
-   border-radius: 5px;
-   font-size: 1em;
-}
-</style>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="LetsChat.js"></script>
+</head>
 <body>
-   <div class="header">
-       <!--<h1>LetsChat</h1>-->
-       <h2>LetsChat</h2>
-   </div>
-   <div class="content">
-       <p>Experience the future of social media services with us. We offer a wide range of services to suit all your social needs.</p>
-       <p>Our login form is simple and secure, so you can rest assured that your information is safe with us.</p>
-   </div>
-   <div class="signup-form">
-       <h3>Log In</h3>
-       <!--<p>Don't have an account? Create Now.</p>-->
-       
-           <label for="name">Name:</label><br>
-           <input type="text" id="user_name" name="name"><br>
-           <!--<label for="email">Email:</label><br>
-           <input type="text" id="email" name="email"><br>
-           <label for="password">Password:</label><br>
-           <input type="password" id="password" name="password"><br>-->
-           <input type="submit" value="Sign Up" onclick="addUser()">
-       
-   </div>
-   <!--<div class="footer">
-       <p>Follow us on social media</p>
-       <div class="social-media">
-           <i class="fab fa-facebook"></i>
-           <i class="fab fa-twitter"></i>
-           <i class="fab fa-instagram"></i>
-           <i class="fab fa-linkedin"></i>
-       </div>
-   </div>-->
+
+<center>
+	<h1 class="header">	
+		LetsChat	<sup>
+	<img src="m2.png">
+	</sup>
+</h1>
+
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-11 login_div">
+
+	<img src="logo.png" class="logo">
+		<h3 >See what is happening in the world right now</h3>
+
+		<h4 >Join LetsChat today</h4>
+		
+		<div class="form-group">
+		  <label >User Name:</label>
+		 <input type="text" id="user_name" class="form-control" placeholder="User Name">
+		</div>
+
+		<button id="login_button" class="btn btn-primary" onclick="addUser()">Log in</button>
+		<br><br>
+	</div>
+</center>
+
+
+
 </body>
 </html>
