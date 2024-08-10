@@ -1,0 +1,95 @@
+<html>
+    <title>LetsChat</title>
+    <script src="LetsChat.js"></script>
+<style>
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background: linear-gradient(to right, #003366, #0066cc);
+   color: white;
+}
+
+.header {
+   text-align: center;
+   font-size: 3em;
+   margin: 20px;
+}
+
+.content {
+   text-align: center;
+   font-size: 1.5em;
+   margin: 20px;
+}
+
+.signup-form {
+   text-align: center;
+   font-size: 1.2em;
+   margin: 20px;
+}
+
+.footer {
+   text-align: center;
+   font-size: 1.5em;
+   margin: 20px;
+}
+
+.social-media {
+   text-align: center;
+   font-size: 2em;
+   margin: 20px;
+}
+
+.signup-form input[type="text"], .signup-form input[type="password"] {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+}
+
+.signup-form input[type="submit"] {
+   width: 50%;
+   padding: 10px;
+   background: linear-gradient(to right, #003366, #0066cc);
+   color: white;
+   border: none;
+   border-radius: 5px;
+   font-size: 1em;
+}
+</style>
+<body>
+   <div class="header">
+       <!--<h1>LetsChat</h1>-->
+       <h2>LetsChat</h2>
+   </div>
+   <div class="content">
+       <p>Experience the future of social media services with us. We offer a wide range of services to suit all your social needs.</p>
+       <p>Our login form is simple and secure, so you can rest assured that your information is safe with us.</p>
+   </div>
+   <div class="signup-form">
+       <h3>Log In</h3>
+       <!--<p>Don't have an account? Create Now.</p>-->
+       
+           <label for="name">Name:</label><br>
+           <input type="text" id="user_name" name="name"><br>
+           <!--<label for="email">Email:</label><br>
+           <input type="text" id="email" name="email"><br>
+           <label for="password">Password:</label><br>
+           <input type="password" id="password" name="password"><br>-->
+           <input type="submit" value="Sign Up" onclick="addUser()">
+       
+   </div>
+   <!--<div class="footer">
+       <p>Follow us on social media</p>
+       <div class="social-media">
+           <i class="fab fa-facebook"></i>
+           <i class="fab fa-twitter"></i>
+           <i class="fab fa-instagram"></i>
+           <i class="fab fa-linkedin"></i>
+       </div>
+   </div>-->
+</body>
+</html>

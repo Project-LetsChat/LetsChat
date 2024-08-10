@@ -1,0 +1,70 @@
+/* LetsChat - A social media platform framework
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+ body {
+    background: url('filter_background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+h3 {
+    font-size: 25px !important;
+    margin-top: 20px;
+}
+
+.btn-success:hover {
+    background-color: red;
+}
+
+.container {
+    margin-top: 70px; /* Adjust margin to avoid navbar overlap */
+    text-align: center; /* Center all content */
+}
+
+.center-content {
+    margin-bottom: 10px; /* Reduce bottom margin to decrease the gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.camera-container {
+    margin-top: 10px;
+    width: 400px; /* Set width to match the camera */
+    height: 300px; /* Set height to match the camera */
+}
+
+#camera {
+    width: 100%; /* Ensure the camera takes full width of its container */
+    height: 100%; /* Ensure the camera takes full height of its container */
+    position: relative;
+}
+
+canvas {
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    position: relative;
+}
+
+@keyframes example {
+    from {
+        box-shadow: 1px 1px 38px blue;
+    }
+    to {
+        box-shadow: 1px 1px 38px yellow;
+    }
+}

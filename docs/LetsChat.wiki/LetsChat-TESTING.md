@@ -1,0 +1,1 @@
+LetsChat TESTING is a branch of LetsChat separate from the main branch, it is very unstable and has new features added and removed constantly. It gets buggy and unusable very often, LetsChat TESTING is not recommended for use on a mainline application.
