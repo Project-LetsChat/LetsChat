@@ -1,0 +1,122 @@
+<html>
+    <title>LetsChat</title>
+    <script src="LetsChat.js"></script>
+<style>
+body {
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   background: linear-gradient(to right, #ff0000, #ff0000);
+   color: #fff;
+}
+
+.container {
+   display: flex;
+   width: 100%;
+   height: 100%;
+}
+
+.left-column {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: rgba(255,255,255,0.1);
+   border-radius: 20px;
+   padding: 20px;
+   text-align: center;
+}
+
+.right-column {
+   flex: 1;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background: rgba(255,255,255,0.1);
+   border-radius: 20px;
+   padding: 20px;
+   text-align: center;
+}
+
+h1, h2 {
+   color: #ffffff;
+   text-transform: uppercase;
+}
+
+p {
+   color: #ffffff;
+   text-align: center;
+}
+
+form {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 20px 0;
+}
+
+input {
+   margin: 10px 0;
+   padding: 10px;
+   border: none;
+   border-radius: 20px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+button {
+   background: #ff0000;
+   color: #ffffff;
+   border: none;
+   padding: 10px;
+   border-radius: 20px;
+   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.social-media {
+   display: flex;
+   justify-content: space-around;
+   width: 200px;
+   margin: 20px 0;
+}
+
+.social-media a {
+   color: #ffffff;
+   text-decoration: none;
+   font-size: 20px;
+}
+</style>
+<body>
+   <div class="container">
+       <div class="left-column">
+           <h1>Welcome to LetsChat</h1>
+           <p>Log in to get updates on the things that interest you.</p>
+           
+               <input type="text" id="user_name" placeholder="Username">
+               <!--<input type="password" placeholder="Password">-->
+               <button onclick="addUser()">Sign In</button>
+           
+           <!--<form>
+               <input type="text" placeholder="Don't have an account? Sign Up Now">
+               <button>Sign Up</button>
+           </form>
+           <div class="social-media">
+               <a href="#">Facebook</a>
+               <a href="#">Twitter</a>
+               <a href="#">Instagram</a>
+               <a href="#">LinkedIn</a>
+           </div>
+       </div>
+       <div class="right-column">
+           <h2>Latest Posts</h2>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam nec tortor. Proin efficitur leo vel ex aliquam ullamcorper aenean ut pretium ligula.</p>
+       </div>-->
+   </div>
+</body>
+</html>

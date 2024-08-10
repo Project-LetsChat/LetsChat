@@ -1,0 +1,89 @@
+<html>
+    <title>LetsChat</title>
+    <script src="LetsChat.js"></script>
+<style>
+body {
+   font-family: Arial, sans-serif;
+}
+
+.header {
+   background: linear-gradient(to right, #ff0066, #ff3333);
+   color: white;
+   padding: 20px;
+   text-align: center;
+}
+
+.logo {
+   font-size: 20px;
+   margin-bottom: 20px;
+}
+
+.login-form {
+   width: 300px;
+   margin: auto;
+   padding: 50px;
+   background: white;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.login-form h2 {
+   color: #333;
+   text-align: center;
+}
+
+.login-form input {
+   width: 100%;
+   padding: 12px 20px;
+   margin: 8px 0;
+   display: inline-block;
+   border: 1px solid #ccc;
+   box-sizing: border-box;
+}
+
+.login-form button {
+   width: 100%;
+   background-color: #00b3b3;
+   color: white;
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+}
+
+.login-form button:hover {
+   background-color: #008080;
+}
+
+.user-icon {
+   width: 50px;
+   height: 50px;
+   background: linear-gradient(to right, #ff0066, #ff3333);
+   margin: 10px;
+   animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+   from { transform: rotate(0deg); }
+   to { transform: rotate(360deg); }
+}
+</style>
+<body>
+   <div class="header">
+       <!--<div class="logo">LOGO</div>-->
+       <h1>Welcome</h1>
+       <p>Please login to access your account</p>
+       <!--<div class="user-icon"></div>
+       <div class="user-icon"></div>
+       <div class="user-icon"></div>
+       <div class="user-icon"></div>-->
+   </div>
+   <div class="login-form">
+       <h2>Sign In</h2>
+       <input type="text" id="user_name" placeholder="User Name">
+       <!--<input type="password" placeholder="Password">-->
+       <!--<input type="checkbox" placeholder="Keep me signed in">-->
+       <button onclick="addUser()">LOG IN</button>
+       <!--<p>Forgot password?</p>-->
+   </div>
+</body>
+</html>
