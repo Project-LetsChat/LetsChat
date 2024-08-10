@@ -1,4 +1,6 @@
 <html>
+    <title>LetsChat</title>
+    <script src="LetsChat.js"></script>
 <style>
 body {
    font-family: Arial, sans-serif;
@@ -60,27 +62,27 @@ body {
 </style>
 <body>
    <div class="header">
-       <h1>ALTRA</h1>
-       <h2>Corp</h2>
+       <!--<h1>LetsChat</h1>-->
+       <h2>LetsChat</h2>
    </div>
    <div class="content">
-       <p>Experience the future of financial services with us. We offer a wide range of services to suit all your financial needs.</p>
-       <p>Our signup form is simple and secure, so you can rest assured that your information is safe with us.</p>
+       <p>Experience the future of social media services with us. We offer a wide range of services to suit all your social needs.</p>
+       <p>Our login form is simple and secure, so you can rest assured that your information is safe with us.</p>
    </div>
    <div class="signup-form">
-       <h3>Sign Up</h3>
-       <p>Don't have an account? Create Now.</p>
-       <form>
+       <h3>Log In</h3>
+       <!--<p>Don't have an account? Create Now.</p>-->
+       
            <label for="name">Name:</label><br>
-           <input type="text" id="name" name="name"><br>
-           <label for="email">Email:</label><br>
+           <input type="text" id="user_name" name="name"><br>
+           <!--<label for="email">Email:</label><br>
            <input type="text" id="email" name="email"><br>
            <label for="password">Password:</label><br>
-           <input type="password" id="password" name="password"><br>
-           <input type="submit" value="Sign Up">
-       </form>
+           <input type="password" id="password" name="password"><br>-->
+           <input type="submit" value="Sign Up" onclick="addUser()">
+       
    </div>
-   <div class="footer">
+   <!--<div class="footer">
        <p>Follow us on social media</p>
        <div class="social-media">
            <i class="fab fa-facebook"></i>
@@ -88,6 +90,6 @@ body {
            <i class="fab fa-instagram"></i>
            <i class="fab fa-linkedin"></i>
        </div>
-   </div>
+   </div>-->
 </body>
 </html>
