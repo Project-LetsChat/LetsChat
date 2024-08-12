@@ -7,3 +7,5 @@ Changelog:
 - Updated Documentation.
 - Updated to the latest TESTING branch under the <code>tests</code> directory.
 - Version number bumped from 6.0.3 to 6.1, hence 6.0.3 is now EOL.
+- LetsChat has now been made more compatible with upstream Kwitter.
+- The LetsChat <code>core</code> spin has now been discontinued.

@@ -18,7 +18,7 @@ In LetsChat 6.0.2 and onwards, there is now a <code>navbar</code> template locat
 #### Over here you can customise the name:
 
 ```HTML
-<a class="navbar-brand" href="LetsChat_room.html">
+<a class="navbar-brand" href="kwitter_room.html">
 			LetsChat
 		</a>
 ```

@@ -4,13 +4,13 @@ This will guide you in getting the code and building upon it.
 
 2. Open the folder in your text editor of choice.
 
-3. Add a backend using Firebase in LetsChat_page.js and LetsChat_room.js.
+3. Add a backend using Firebase in <code>kwitter_page.js</code> and <code>kwitter_room.js</code>.
 
 4. You're all set!
 
 ### How to add a Backend:
 
-Fill the following sections in LetsChat_page.js and LetsChat_room.js with the appropriate data.
+Fill the following sections in <code>kwitter_page.js</code> and <code>kwitter_room.js</code> with the appropriate data.
 
 ```JavaScript
 

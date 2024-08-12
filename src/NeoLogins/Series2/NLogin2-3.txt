@@ -1,6 +1,6 @@
 <html>
     <title>LetsChat</title>
-    <script src="LetsChat.js"></script>
+    <script src="kwitter.js"></script>
 <style>
 body {
    background: linear-gradient(to bottom, #2b2d42, #8d99ae);

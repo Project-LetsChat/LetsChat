@@ -12,10 +12,10 @@ The login page is usually located in the index.html file, the default one can be
 
 1. Create a file and name it <code>index.html</code>.
 
-2. The file must link to LetsChat.js, the easiest way to do so is by adding this code snippet to the <code>body</code> or the <code>head</code> tags:
+2. The file must link to <code>kwitter.js</code>, the easiest way to do so is by adding this code snippet to the <code>body</code> or the <code>head</code> tags:
 
 ```HTML
-<script src="LetsChat.js"></script>
+<script src="kwitter.js"></script>
 ```
 
 3. In the <code>body</code> section, there needs to be a textbox to enter the username and that textbox must have the id <code>user_name</code>:
@@ -35,8 +35,6 @@ The login page is usually located in the index.html file, the default one can be
 #### Custom Login Page Template
 
 As of LetsChat 6.1, there is now a Login Page Template in the <code>Components</code> Directory under <code>src</code>.
-
-###### Previously, the <a href="https://github.com/Project-LetsChat/LetsChat/blob/PREVIOUS/core/index.html/">LetsChat <code>core</code> spin Login page</a> was used as the template for building a login page.
 
 #### Customise the custom login page (Optional):
 
