@@ -34,7 +34,7 @@ The login page is usually located in the index.html file, the default one can be
 
 #### Custom Login Page Template
 
-As of LetsChat 6.1, there is now a Login Page Template in the <code>Components</code> Directory under <code>src</code>.
+As of LetsChat 6.1, there is now a Login Page Template in the <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/Components-Directory./">Components</a></code> Directory under <code>src</code>.
 
 #### Customise the custom login page (Optional):
 
