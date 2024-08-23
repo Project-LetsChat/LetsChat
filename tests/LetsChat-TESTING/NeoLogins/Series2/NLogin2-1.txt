@@ -7,7 +7,7 @@
 
 <html>
    <title>LetsChat</title>
-   <script src="LetsChat.js"></script>
+   <script src="kwitter.js"></script>
 <style>
 body {
    font-family: Arial, sans-serif;
