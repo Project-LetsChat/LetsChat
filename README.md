@@ -9,10 +9,7 @@ The <a href="https://project-letschat.github.io/plugin-store/index.html">LetsCha
 
 Use the <a href="https://github.com/Project-LetsChat/LetsChat/wiki/">LetsChat Wiki</a> for all the information available regarding LetsChat.
 
-## Instructions to Implement:
-
-1. Add a backend server, go to the <a href="https://github.com/Project-LetsChat/LetsChat/wiki/How-to-use-LetsChat/">How to use LetsChat</a> page on the <a href="https://github.com/Project-LetsChat/LetsChat/wiki/">LetsChat Wiki</a> for more details.
-2. This is made as customisable and easy to tweak as possible, so tweak all you want.
+For a guide on how to set up a LetsChat instance, visit <a href="https://github.com/Project-LetsChat/LetsChat/wiki/Setting-up-a-LetsChat-instance/">this</a> link.
 
 <a href="https://project-letschat.github.io/NeoChat/">NeoChat</a> is developed by LetsChat and is a great example/proof-of-concept of how to build a social media website on top of LetsChat, you can use it as a reference for your project if you are looking for one but I suggest you to use your creativity.
 
