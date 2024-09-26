@@ -11,7 +11,7 @@ Use the <a href="https://github.com/Project-LetsChat/LetsChat/wiki/">LetsChat Wi
 
 For a guide on how to set up a LetsChat instance, visit <a href="https://github.com/Project-LetsChat/LetsChat/wiki/Setting-up-a-LetsChat-instance/">this</a> link.
 
-<a href="https://project-letschat.github.io/NeoChat/">NeoChat</a> is developed by LetsChat and is a great example/proof-of-concept of how to build a social media website on top of LetsChat, you can use it as a reference for your project if you are looking for one but it is suggested that you use your creativity instead.
+<a href="https://project-letschat.github.io/NovaChat/index.html">NovaChat</a> is developed by LetsChat and is a great example/proof-of-concept of how to build a social media website on top of LetsChat, you can use it as a reference for your project if you are looking for one but it is suggested that you use your creativity instead.
 
 #### NOTE: Before interacting with the project read the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>.
 
