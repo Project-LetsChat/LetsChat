@@ -2,11 +2,11 @@
 
 ## Supported Versions
 
-The latest version is the only currently supported version, 6.1 is the newest major version.
+The latest version is the only currently supported version, so 6.1 is the newest major version whereas 6.1.2 is the latest version.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 6.1.1   | :white_check_mark: |
+| 6.1.2   | :white_check_mark: |
 | 5.0.x   | :x:                |
 | 4.0.x   | :x:                |
 | < 4.0   | :x:                |

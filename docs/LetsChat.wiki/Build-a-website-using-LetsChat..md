@@ -1,1 +1,0 @@
-It is very intuitive to build a website on top of LetsChat, <a href="https://project-letschat.github.io/NeoChat/index.html">NeoChat</a> is a great example of what kind of a website can be built on top of LetsChat. It is a LetsChat project that serves as a proof-of-concept/example of what a website built on top of LetsChat can be.

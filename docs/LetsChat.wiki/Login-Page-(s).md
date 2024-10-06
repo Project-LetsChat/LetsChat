@@ -23,7 +23,7 @@ The login page is usually located in the index.html file, the default one can be
 <input type="text" id="user_name" placeholder="Enter your username">
 ```
 
-4. Now, create a <code>button</code>. The <code>button</code> should have <code>onclick="addUser()"</code> in the HTML tag so that it can trigger the <code>addUser()</code> function:
+4. Now, create a <code>button</code>. The <code>button</code> should have <code>onclick="addUser()"</code> in the HTML tag so that it can trigger the <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/addUser()/">addUser()</a></code> function:
 ```HTML
 <button onclick="addUser()">Login</button>
 ```

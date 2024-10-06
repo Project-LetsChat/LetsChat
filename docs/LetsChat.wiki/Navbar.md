@@ -23,4 +23,4 @@ In LetsChat 6.0.2 and onwards, there is now a <code>navbar</code> template locat
 		</a>
 ```
 
-###### NOTE: As of LetsChat version 6.0 the <code>navbar</code> now has a new file for theming it, making it independent from the universal <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/style.css/">style.css</a></code>.
+###### NOTE: As of LetsChat version 6.0 the <code>navbar</code> now has a new file for theming it, making it independent from the universal <code><a href="https://github.com/Project-LetsChat/LetsChat/wiki/style.css/">style.css</a></code> file.
