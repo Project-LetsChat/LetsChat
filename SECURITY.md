@@ -2,14 +2,14 @@
 
 ## Supported Versions
 
-The latest version is the only currently supported version, so 6.1 is the newest major version whereas 6.1.2 is the latest version.
+The master branch is loosely supported, it does get security patches but may not get as many bug fixes or get as well tested.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 6.1.2   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :x:                |
-| < 4.0   | :x:                |
+| master6 | :white_check_mark: |
+| master5 | :x:                |
+| master4 | :x:                |
+| < 3,2,1 | :x:                |
 
 ## Reporting a Vulnerability
 
