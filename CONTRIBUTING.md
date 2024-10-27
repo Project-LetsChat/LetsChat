@@ -6,28 +6,14 @@ Simple Setup Instructions:
 
 ## Getting Started
 
-1. Clone the repository:
-<code>git clone https://github.com/Project-LetsChat/LetsChat.git/</code>
+1. <a href="https://github.com/Project-LetsChat/LetsChat/archive/refs/heads/Rolling.zip/">Download</a> the latest Rolling branch.
 
-2. Navigate to the project directory:
-<code>cd LetsChat</code>
+2. Navigate to the project directory.
 
-3. Install a code editor (if not installed)
+3. Install a code editor (if not installed).
 
-4. Start building and modifying LetsChat to suit your needs.
+4. Make changes.
 
-### How to Contribute
-
-1. Fork the repository.
-2. Create a new branch for your changes:
-<code>git checkout -b my-new-feature</code>
-
-3. Make your modifications and commit your changes:
-<code>git commit -m "Add some feature"</code>
-
-4. Push to your branch:
-<code>git push origin my-new-feature</code>
-
-5. Submit a pull request.
+5. <a href="https://github.com/Project-LetsChat/LetsChat/pulls/">Submit a pull request</a> and describe your changes in the pull request.
 
 If you have any questions, feel free to contact us.
