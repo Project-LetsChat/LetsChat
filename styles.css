@@ -1,510 +1,52 @@
-/* Light theme */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f0f0f0;
-    color: #333;
+    background-color: #f0f0f0; /* Default light theme background */
+    color: #333; /* Default text color */
 }
 
 header {
-    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out elements in the header */
+    background-color: #333; /* Default light theme header */
     color: white;
     padding: 1rem;
-    text-align: center;
-    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-header input[type="checkbox"].theme-toggle {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-}
-
-header label[for="theme-toggle"] {
-    position: absolute;
-    top: 1rem;
-    right: 3rem;
-    color: white;
+header h1 {
+    flex-grow: 1;
+    margin: 0;
 }
 
 #search {
-    margin-top: 1rem;
+    margin-left: 1rem;
     padding: 0.5rem;
     width: 60%;
     max-width: 400px;
 }
 
 #category-select {
-    margin-top: 1rem;
+    margin-left: 1rem;
     padding: 0.5rem;
     width: 30%;
     max-width: 200px;
 }
 
-main {
-    padding: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.plugin-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1rem;
-    padding: 1rem;
-    width: 300px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-}
-
-.plugin-card h2 {
-    font-size: 1.5rem;
-    margin: 0;
-}
-
-.plugin-card p {
-    color: #555;
-}
-
-#plugin-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.plugin-detail {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 2rem auto;
-    padding: 2rem;
-    width: 80%;
-    max-width: 600px;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-}
-
-/* Dark theme */
-body.dark-theme {
-    background-color: #333;
-    color: #f0f0f0;
-}
-
-body.dark-theme header {
-    background-color: #444;
-}
-
-body.dark-theme .plugin-card {
-    background-color: #444;
-    border: 1px solid #555;
-    color: #f0f0f0;
-}
-
-body.dark-theme .plugin-card p {
-    color: #ccc;
-}
-
-body.dark-theme .plugin-detail {
-    background-color: #444;
-    border: 1px solid #555;
-    color: #f0f0f0;
-}
-
-body.dark-theme footer {
-    background-color: #444;
-}
-
-/* New styles for download button */
-.download-button {
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.download-button:hover {
-    background-color: #555;
-}
-
-body.dark-theme .download-button {
-    background-color: #555;
-}
-
-body.dark-theme .download-button:hover {
-    background-color: #777;
-}
-
-/* New styles for back button */
-.back-button {
-    position: absolute;
-    top: 50%;
-    left: 1rem;
-    transform: translateY(-50%);
-    background-color: #333;
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-}
-
-.back-button:hover {
-    background-color: #555;
-}
-
-body.dark-theme .back-button {
-    background-color: #555;
-}
-
-body.dark-theme .back-button:hover {
-    background-color: #777;
-}
-
-/* New styles for repo link */
-.repo-link {
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.repo-link:hover {
-    background-color: #555;
-}
-
-body.dark-theme .repo-link {
-    background-color: #555;
-}
-
-body.dark-theme .repo-link:hover {
-    background-color: #777;
-}
-
-/* New styles for license link */
-#plugin-license {
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#plugin-license:hover {
-    background-color: #555;
-}
-
-body.dark-theme #plugin-license {
-    background-color: #555;
-}
-
-body.dark-theme #plugin-license:hover {
-    background-color: #777;
-}
-
-/* General Styles for Dark Theme Enhancements */
-body.dark-theme {
-    background-color: #121212; /* Darker background for better contrast */
-    color: #e0e0e0; /* Light text color for better readability */
-}
-
-/* Header with Blur and Transparency */
-body.dark-theme header {
-    background-color: rgba(30, 30, 30, 0.8); /* Slight transparency */
-    backdrop-filter: blur(10px); /* Blur effect for modern look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
-    border-radius: 0 0 10px 10px; /* Rounded bottom corners */
-}
-
-/* Plugin Cards with Modern Look */
-body.dark-theme .plugin-card {
-    background-color: rgba(40, 40, 40, 0.9); /* Slightly transparent card */
-    backdrop-filter: blur(8px); /* Subtle blur for elegance */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Border with low opacity */
-    border-radius: 15px; /* Rounded corners */
-    color: #e0e0e0; /* Light text for contrast */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Larger shadow for a modern feel */
-    padding: 1rem;
-    margin: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
-}
-
-body.dark-theme .plugin-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
-}
-
-/* Plugin Details Page */
-body.dark-theme .plugin-detail {
-    background-color: rgba(40, 40, 40, 0.9); /* Transparent background */
-    backdrop-filter: blur(12px); /* Blur for modern glass effect */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-    border-radius: 20px; /* Rounded corners */
-    padding: 2rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4); /* Depth with shadow */
-}
-
-/* Footer */
-body.dark-theme footer {
-    background-color: rgba(30, 30, 30, 0.8); /* Transparent footer */
-    backdrop-filter: blur(10px); /* Subtle blur */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Divider */
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3); /* Shadow for separation */
-}
-
-/* Buttons with Rounded Corners and Shadows */
-body.dark-theme .download-button,
-body.dark-theme .repo-link,
-body.dark-theme .back-button {
-    background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent buttons */
-    color: #ffffff; /* White text for contrast */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth hover animation */
-}
-
-body.dark-theme .download-button:hover,
-body.dark-theme .repo-link:hover,
-body.dark-theme .back-button:hover {
-    background-color: rgba(70, 70, 70, 0.9); /* Slightly lighter on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5); /* Pronounced shadow on hover */
-}
-
-/* Search Bar and Dropdown with Blur */
-body.dark-theme #search,
-body.dark-theme #category-select {
-    background-color: rgba(50, 50, 50, 0.8); /* Semi-transparent input fields */
-    backdrop-filter: blur(5px); /* Blur effect */
-    color: #e0e0e0; /* Light text color */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
-    border-radius: 10px; /* Rounded corners */
-    padding: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-    transition: box-shadow 0.3s ease; /* Smooth transition */
-}
-
-body.dark-theme #search:focus,
-body.dark-theme #category-select:focus {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* More pronounced shadow on focus */
-}
-
-/* Category Selection */
-body.dark-theme #category-select {
-    width: auto; /* Adjust width for dropdown */
-    padding-right: 1.5rem; /* Space for dropdown arrow */
-}
-
-/* Checkbox Slider for Theme Toggle */
-body.dark-theme #theme-toggle {
-    display: none;
-}
-
-body.dark-theme label[for="theme-toggle"] {
-    position: relative;
-    width: 50px;
-    height: 25px;
-    display: inline-block;
-    background-color: rgba(50, 50, 50, 0.8);
-    border-radius: 25px;
-    cursor: pointer;
-}
-
-body.dark-theme label[for="theme-toggle"]::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    top: 2.5px;
-    left: 2.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-body.dark-theme #theme-toggle:checked + label[for="theme-toggle"] {
-    background-color: rgba(70, 70, 70, 0.9);
-}
-
-body.dark-theme #theme-toggle:checked + label[for="theme-toggle"]::before {
-    transform: translateX(25px);
-}
-
-/* Header Layout Fix */
-header {
+/* Theme Toggle */
+header .theme-toggle-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space out elements evenly */
-    background-color: rgba(30, 30, 30, 0.8); /* Transparent background for dark mode */
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border-radius: 0 0 10px 10px;
-}
-
-header h1 {
-    flex-grow: 1; /* Ensure the title takes up extra space if needed */
-    margin: 0;
-}
-
-header input[type="text"],
-header select {
-    margin-left: 1rem;
+    justify-content: flex-end;
+    gap: 0.25rem; /* Minimal gap between slider and text */
+    margin-left: auto;
     margin-right: 1rem;
 }
 
-/* Dark Mode Toggle Position Fix */
-header input[type="checkbox"].theme-toggle {
-    display: none; /* Hide the checkbox */
-}
-
-header label[for="theme-toggle"] {
-    display: inline-block;
-    position: relative;
-    width: 50px;
-    height: 25px;
-    background-color: rgba(50, 50, 50, 0.8);
-    border-radius: 25px;
-    cursor: pointer;
-    margin-left: auto; /* Align to the right */
-    margin-right: 1rem; /* Add spacing to avoid overlap */
-}
-
-header label[for="theme-toggle"]::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    top: 2.5px;
-    left: 2.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"] {
-    background-color: rgba(70, 70, 70, 0.9);
-}
-
-header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"]::before {
-    transform: translateX(25px);
-}
-
-/* Back Button Fix for Plugin Detail Page */
-.back-button {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background-color: rgba(50, 50, 50, 0.8);
-    color: white;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    z-index: 10; /* Ensure it stays above other elements */
-}
-
-.back-button:hover {
-    background-color: rgba(70, 70, 70, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Plugin Detail Buttons Spacing Fix */
-.plugin-detail a {
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: rgba(50, 50, 50, 0.8);
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-}
-
-.plugin-detail a:hover {
-    background-color: rgba(70, 70, 70, 0.9);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Consistent Button Sizing */
-.plugin-detail .download-button,
-.plugin-detail .repo-link {
-    width: calc(100% - 2rem); /* Full width with padding */
-    margin: 1rem auto; /* Center and add vertical spacing */
-}
-
-/* General Fixes for Input Fields and Dropdowns */
-header input[type="text"],
-header select {
-    background-color: rgba(50, 50, 50, 0.8);
-    color: #e0e0e0;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 0.5rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-header input[type="text"]:focus,
-header select:focus {
-    outline: none;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-}
-
-/* Footer Styling Fix */
-footer {
-    background-color: rgba(30, 30, 30, 0.8);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
-    padding: 1rem;
-    text-align: center;
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
-}
-
-/* Dark Mode Toggle Wrapper */
-header .theme-toggle-wrapper {
-    display: flex;
-    align-items: center; /* Align slider and text vertically */
-    justify-content: flex-end; /* Align to the right */
-    gap: 0.5rem; /* Space between the slider and the text */
-    margin-left: auto; /* Push the toggle to the far right */
-    margin-right: 1rem; /* Add spacing from the right edge */
-}
-
-/* Adjust Slider */
 header input[type="checkbox"].theme-toggle {
     display: none; /* Hide the default checkbox */
 }
@@ -538,4 +80,144 @@ header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"] {
 
 header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"]::before {
     transform: translateX(25px);
+}
+
+header .theme-toggle-wrapper span {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Main Layout */
+main {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#plugin-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.plugin-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    width: 300px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.plugin-card h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.plugin-card p {
+    color: #555;
+}
+
+.plugin-detail {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Buttons */
+.download-button,
+.repo-link,
+.back-button {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-button:hover,
+.repo-link:hover,
+.back-button:hover {
+    background-color: #555;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-theme header {
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme .plugin-card {
+    background-color: rgba(40, 40, 40, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    color: #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-theme .plugin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-theme .plugin-detail {
+    background-color: rgba(40, 40, 40, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme footer {
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Dark Theme Buttons */
+body.dark-theme .download-button,
+body.dark-theme .repo-link,
+body.dark-theme .back-button {
+    background-color: rgba(50, 50, 50, 0.8);
+    color: white;
+}
+
+body.dark-theme .download-button:hover,
+body.dark-theme .repo-link:hover,
+body.dark-theme .back-button:hover {
+    background-color: rgba(70, 70, 70, 0.9);
 }
