@@ -40,11 +40,11 @@ header h1 {
 /* Theme Toggle */
 header .theme-toggle-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: center; /* Vertically align slider and text */
+    justify-content: flex-end; /* Align to the right */
     gap: 0.25rem; /* Minimal gap between slider and text */
-    margin-left: auto;
-    margin-right: 1rem;
+    margin-left: auto; /* Push to the far right */
+    margin-right: 1rem; /* Add spacing from the right edge */
 }
 
 header input[type="checkbox"].theme-toggle {
@@ -56,9 +56,10 @@ header label[for="theme-toggle"] {
     position: relative;
     width: 50px;
     height: 25px;
-    background-color: rgba(50, 50, 50, 0.8);
+    background-color: rgba(200, 200, 200, 0.8); /* Light mode slider background */
     border-radius: 25px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 header label[for="theme-toggle"]::before {
@@ -66,21 +67,22 @@ header label[for="theme-toggle"]::before {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: #ffffff;
+    background-color: #ffffff; /* White dot */
     border-radius: 50%;
     top: 2.5px;
     left: 2.5px;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Light shadow for visibility */
 }
 
 header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"] {
-    background-color: rgba(70, 70, 70, 0.9);
+    background-color: rgba(70, 70, 70, 0.9); /* Dark mode slider background */
 }
 
 header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"]::before {
     transform: translateX(25px);
 }
+
 
 header .theme-toggle-wrapper span {
     margin: 0;
