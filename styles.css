@@ -493,3 +493,49 @@ footer {
     text-align: center;
     border-radius: 10px 10px 0 0; /* Rounded top corners */
 }
+
+/* Dark Mode Toggle Wrapper */
+header .theme-toggle-wrapper {
+    display: flex;
+    align-items: center; /* Align slider and text vertically */
+    justify-content: flex-end; /* Align to the right */
+    gap: 0.5rem; /* Space between the slider and the text */
+    margin-left: auto; /* Push the toggle to the far right */
+    margin-right: 1rem; /* Add spacing from the right edge */
+}
+
+/* Adjust Slider */
+header input[type="checkbox"].theme-toggle {
+    display: none; /* Hide the default checkbox */
+}
+
+header label[for="theme-toggle"] {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 25px;
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+header label[for="theme-toggle"]::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"] {
+    background-color: rgba(70, 70, 70, 0.9);
+}
+
+header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"]::before {
+    transform: translateX(25px);
+}
