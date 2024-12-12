@@ -100,6 +100,135 @@ footer {
 }
 
 /* Dark theme */
+body.dark-theme {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+body.dark-theme header {
+    background-color: #444;
+}
+
+body.dark-theme .plugin-card {
+    background-color: #444;
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark-theme .plugin-card p {
+    color: #ccc;
+}
+
+body.dark-theme .plugin-detail {
+    background-color: #444;
+    border: 1px solid #555;
+    color: #f0f0f0;
+}
+
+body.dark-theme footer {
+    background-color: #444;
+}
+
+/* New styles for download button */
+.download-button {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.download-button:hover {
+    background-color: #555;
+}
+
+body.dark-theme .download-button {
+    background-color: #555;
+}
+
+body.dark-theme .download-button:hover {
+    background-color: #777;
+}
+
+/* New styles for back button */
+.back-button {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+body.dark-theme .back-button {
+    background-color: #555;
+}
+
+body.dark-theme .back-button:hover {
+    background-color: #777;
+}
+
+/* New styles for repo link */
+.repo-link {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.repo-link:hover {
+    background-color: #555;
+}
+
+body.dark-theme .repo-link {
+    background-color: #555;
+}
+
+body.dark-theme .repo-link:hover {
+    background-color: #777;
+}
+
+/* New styles for license link */
+#plugin-license {
+    display: block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#plugin-license:hover {
+    background-color: #555;
+}
+
+body.dark-theme #plugin-license {
+    background-color: #555;
+}
+
+body.dark-theme #plugin-license:hover {
+    background-color: #777;
+}
+
 /* General Styles for Dark Theme Enhancements */
 body.dark-theme {
     background-color: #121212; /* Darker background for better contrast */
@@ -231,53 +360,136 @@ body.dark-theme #theme-toggle:checked + label[for="theme-toggle"]::before {
     transform: translateX(25px);
 }
 
+/* Header Layout Fix */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space out elements evenly */
+    background-color: rgba(30, 30, 30, 0.8); /* Transparent background for dark mode */
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 10px 10px;
+}
 
-/* New styles for repo link */
-.repo-link {
+header h1 {
+    flex-grow: 1; /* Ensure the title takes up extra space if needed */
+    margin: 0;
+}
+
+header input[type="text"],
+header select {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Dark Mode Toggle Position Fix */
+header input[type="checkbox"].theme-toggle {
+    display: none; /* Hide the checkbox */
+}
+
+header label[for="theme-toggle"] {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 25px;
+    background-color: rgba(50, 50, 50, 0.8);
+    border-radius: 25px;
+    cursor: pointer;
+    margin-left: auto; /* Align to the right */
+    margin-right: 1rem; /* Add spacing to avoid overlap */
+}
+
+header label[for="theme-toggle"]::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    top: 2.5px;
+    left: 2.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"] {
+    background-color: rgba(70, 70, 70, 0.9);
+}
+
+header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"]::before {
+    transform: translateX(25px);
+}
+
+/* Back Button Fix for Plugin Detail Page */
+.back-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(50, 50, 50, 0.8);
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 10; /* Ensure it stays above other elements */
+}
+
+.back-button:hover {
+    background-color: rgba(70, 70, 70, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Plugin Detail Buttons Spacing Fix */
+.plugin-detail a {
     display: block;
     margin-top: 1rem;
     padding: 0.5rem 1rem;
-    background-color: #333;
+    background-color: rgba(50, 50, 50, 0.8);
     color: white;
     text-align: center;
     text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
 }
 
-.repo-link:hover {
-    background-color: #555;
+.plugin-detail a:hover {
+    background-color: rgba(70, 70, 70, 0.9);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-body.dark-theme .repo-link {
-    background-color: #555;
+/* Consistent Button Sizing */
+.plugin-detail .download-button,
+.plugin-detail .repo-link {
+    width: calc(100% - 2rem); /* Full width with padding */
+    margin: 1rem auto; /* Center and add vertical spacing */
 }
 
-body.dark-theme .repo-link:hover {
-    background-color: #777;
+/* General Fixes for Input Fields and Dropdowns */
+header input[type="text"],
+header select {
+    background-color: rgba(50, 50, 50, 0.8);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* New styles for license link */
-#plugin-license {
-    display: block;
-    margin-top: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: white;
+header input[type="text"]:focus,
+header select:focus {
+    outline: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer Styling Fix */
+footer {
+    background-color: rgba(30, 30, 30, 0.8);
+    backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
+    padding: 1rem;
     text-align: center;
-    text-decoration: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-#plugin-license:hover {
-    background-color: #555;
-}
-
-body.dark-theme #plugin-license {
-    background-color: #555;
-}
-
-body.dark-theme #plugin-license:hover {
-    background-color: #777;
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
 }
