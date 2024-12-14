@@ -1,12 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const plugins = [
-        { id: 1, name: 'Plugin One', description: 'Description for plugin one.', version: '1.0.0', author: 'Author One' },
-        { id: 2, name: 'Plugin Two', description: 'Description for plugin two.', version: '1.1.0', author: 'Author Two' },
-        { id: 3, name: 'Plugin Three', description: 'Description for plugin three.', version: '1.2.0', author: 'Author Three' },
+        { id: 1, name: 'Plugin One', description: 'Description for plugin one.', version: '1.0.0', author: 'Author One', license: 'MIT', licenseUrl: 'https://www.mit-license.org/', downloadUrl: 'example.txt', repoUrl: 'https://github.com/user/plugin-one', category: 'Utility' },
+        { id: 2, name: 'Plugin Two', description: 'Description for plugin two.', version: '1.1.0', author: 'Author Two', license: 'Apache 2.0', licenseUrl: 'https://www.opensource.org/license/apache-2-0/', downloadUrl: 'example.txt', repoUrl: 'https://github.com/user/plugin-two', category: 'Security' },
+        { id: 3, name: 'Plugin Three', description: 'Description for plugin three.', version: '1.2.0', author: 'Author Three', license: 'GPLv3', licenseUrl: 'https://www.gnu.org/licenses/gpl-3.0.en.html', downloadUrl: 'example.txt', repoUrl: 'https://github.com/user/plugin-three', category: 'Utility' },
     ];
 
     const pluginContainer = document.getElementById('plugin-container');
     const searchInput = document.getElementById('search');
+    const categorySelect = document.getElementById('category-select');
 
     function displayPlugins(plugins) {
         pluginContainer.innerHTML = '';
@@ -18,11 +19,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const pluginTitle = document.createElement('h2');
             pluginTitle.textContent = plugin.name;
 
-            const pluginDescription = document.createElement('p');
-            pluginDescription.textContent = plugin.description;
+            const pluginCategory = document.createElement('p');
+            pluginCategory.textContent = `Category: ${plugin.category}`;
 
             pluginCard.appendChild(pluginTitle);
-            pluginCard.appendChild(pluginDescription);
+            pluginCard.appendChild(pluginCategory);
 
             pluginContainer.appendChild(pluginCard);
         });
@@ -30,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function filterPlugins() {
         const searchTerm = searchInput.value.toLowerCase();
-        const filteredPlugins = plugins.filter(plugin =>
-            plugin.name.toLowerCase().includes(searchTerm) ||
-            plugin.description.toLowerCase().includes(searchTerm)
+        const selectedCategory = categorySelect.value;
+        const filteredPlugins = plugins.filter(plugin => 
+            (plugin.name.toLowerCase().includes(searchTerm) || plugin.description.toLowerCase().includes(searchTerm)) &&
+            (selectedCategory === 'All' || plugin.category === selectedCategory)
         );
         displayPlugins(filteredPlugins);
     }
@@ -45,8 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function toggleTheme() {
+        const isDarkMode = document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    }
+
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-theme');
+        document.getElementById('theme-toggle').checked = true;
+    }
+
     if (pluginContainer) {
         searchInput.addEventListener('input', filterPlugins);
+        categorySelect.addEventListener('change', filterPlugins);
+        document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
         displayPlugins(plugins);
     }
 
@@ -57,6 +72,85 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('plugin-description').textContent = `Description: ${selectedPlugin.description}`;
             document.getElementById('plugin-version').textContent = `Version: ${selectedPlugin.version}`;
             document.getElementById('plugin-author').textContent = `Author: ${selectedPlugin.author}`;
+            document.getElementById('plugin-category').textContent = `Category: ${selectedPlugin.category}`;
+            document.getElementById('plugin-license').href = selectedPlugin.licenseUrl;
+            document.getElementById('plugin-license').textContent = `License: ${selectedPlugin.license}`;
+            document.getElementById('plugin-repo').href = selectedPlugin.repoUrl;
+
+            const downloadButton = document.getElementById('download-button');
+            downloadButton.href = selectedPlugin.downloadUrl;
+            downloadButton.setAttribute('download', selectedPlugin.downloadUrl);
         }
+
+        document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const accessibilityBtn = document.getElementById('accessibility-btn');
+    const accessibilityPanel = document.getElementById('accessibility-panel');
+    const closeAccessibilityBtn = document.getElementById('close-accessibility');
+    const keyboardNavigationToggle = document.getElementById('keyboard-navigation');
+    const highContrastToggle = document.getElementById('high-contrast');
+
+    // Load saved accessibility settings
+    const isHighContrast = localStorage.getItem('highContrast') === 'true';
+    const isKeyboardNavigation = localStorage.getItem('keyboardNavigation') === 'true';
+
+    if (isHighContrast) {
+        document.body.classList.add('high-contrast');
+        highContrastToggle.checked = true;
+    }
+
+    if (isKeyboardNavigation) {
+        enableKeyboardNavigation();
+        keyboardNavigationToggle.checked = true;
+    }
+
+    // Accessibility Panel Toggle
+    accessibilityBtn.addEventListener('click', () => {
+        accessibilityPanel.setAttribute('aria-hidden', 'false');
+    });
+
+    closeAccessibilityBtn.addEventListener('click', () => {
+        accessibilityPanel.setAttribute('aria-hidden', 'true');
+    });
+
+    // High Contrast Mode Toggle
+    highContrastToggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            document.body.classList.add('high-contrast');
+            localStorage.setItem('highContrast', 'true');
+        } else {
+            document.body.classList.remove('high-contrast');
+            localStorage.setItem('highContrast', 'false');
+        }
+    });
+
+    // Keyboard Navigation Toggle
+    keyboardNavigationToggle.addEventListener('change', (e) => {
+        if (e.target.checked) {
+            enableKeyboardNavigation();
+            localStorage.setItem('keyboardNavigation', 'true');
+        } else {
+            disableKeyboardNavigation();
+            localStorage.setItem('keyboardNavigation', 'false');
+        }
+    });
+
+    // Enable Keyboard Navigation
+    function enableKeyboardNavigation() {
+        const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
+        focusableElements.forEach((el) => {
+            el.setAttribute('tabindex', '0');
+        });
+    }
+
+    // Disable Keyboard Navigation
+    function disableKeyboardNavigation() {
+        const focusableElements = document.querySelectorAll('a, button, input, select, textarea');
+        focusableElements.forEach((el) => {
+            el.removeAttribute('tabindex');
+        });
     }
 });

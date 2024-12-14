@@ -6,7 +6,7 @@ The version number does not matter in LetsChat TESTING as it is always unsupport
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 12.12.24| :x:                |
+| 14.12.24| :x:                |
 | x.10.24 | :x:                |
 | x.9.24  | :x:                |
 | < x.8.24| :x:                |

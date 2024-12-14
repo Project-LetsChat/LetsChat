@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LetsChat Plugin Store</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="store.css">
 </head>
 <body>
     <header>
@@ -14,6 +14,7 @@
             <label for="theme-toggle"></label>
             <span>Dark Mode</span>
         </div>
+        <button id="accessibility-btn" class="accessibility-btn" aria-label="Open Accessibility Settings">Accessibility</button>
         <input type="text" id="search" placeholder="Search plugins...">
         <select id="category-select">
             <option value="All">All Categories</option>
@@ -21,6 +22,18 @@
             <option value="Security">Security</option>
         </select>
     </header>
+    <div id="accessibility-panel" class="accessibility-panel" aria-hidden="true">
+        <h2>Accessibility Settings</h2>
+        <label>
+            <input type="checkbox" id="keyboard-navigation" aria-label="Enable Keyboard Navigation">
+            Keyboard Navigation
+        </label>
+        <label>
+            <input type="checkbox" id="high-contrast" aria-label="Enable High Contrast Mode">
+            High Contrast Mode
+        </label>
+        <button id="close-accessibility" class="accessibility-close-btn" aria-label="Close Accessibility Settings">Close</button>
+    </div>
     
     <main>
         <div id="plugin-container">
@@ -30,6 +43,6 @@
     <footer>
         <p>&copy; 2024 LetsChat Web Framework</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script src="store.js"></script>
 </body>
 </html>
