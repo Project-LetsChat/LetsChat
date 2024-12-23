@@ -13,5 +13,5 @@ This directory contains the 3 beta builds of LetsChat.
 ### Pre-Release
 The pre-release is the last version before the release version.
 
-## Original
+### Original
 This directory contains the last updated version of LetsChat Social, read the README file in the <code>Original</code> directory for more detailed information.
