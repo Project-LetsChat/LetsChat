@@ -1,17 +1,23 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const plugins = [
-        { id: 1, name: 'Plugin One', description: 'Description for plugin one.', version: '1.0.0', author: 'Author One', license: 'MIT', licenseUrl: 'https://www.mit-license.org/', downloadUrl: 'example.txt', repoUrl: 'https://github.com/user/plugin-one', category: 'Utility' },
-        { id: 2, name: 'Plugin Two', description: 'Description for plugin two.', version: '1.1.0', author: 'Author Two', license: 'Apache 2.0', licenseUrl: 'https://www.opensource.org/license/apache-2-0/', downloadUrl: 'example.txt', repoUrl: 'https://github.com/user/plugin-two', category: 'Security' },
-        { id: 3, name: 'Plugin Three', description: 'Description for plugin three.', version: '1.2.0', author: 'Author Three', license: 'GPLv3', licenseUrl: 'https://www.gnu.org/licenses/gpl-3.0.en.html', downloadUrl: 'example.txt', repoUrl: 'https://github.com/user/plugin-three', category: 'Utility' },
-    ];
+document.addEventListener('DOMContentLoaded', async () => {
+    let plugins = [];
+    try {
+        plugins = await fetchPlugins();
+    } catch (error) {
+        console.error('Error fetching plugins:', error);
+        const pluginContainer = document.getElementById('plugin-container');
+        if (pluginContainer) {
+            pluginContainer.innerHTML = '<p class="error-message">Failed to load plugins. Please try again later.</p>';
+        }
+        return;
+    }
 
     const pluginContainer = document.getElementById('plugin-container');
     const searchInput = document.getElementById('search');
     const categorySelect = document.getElementById('category-select');
 
-    function displayPlugins(plugins) {
+    function displayPlugins(pluginsToDisplay) {
         pluginContainer.innerHTML = '';
-        plugins.forEach(plugin => {
+        pluginsToDisplay.forEach(plugin => {
             const pluginCard = document.createElement('div');
             pluginCard.className = 'plugin-card';
             pluginCard.onclick = () => showPluginDetails(plugin.id);
@@ -85,3 +91,34 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
     }
 });
+
+async function fetchPlugins() {
+    try {
+        const pluginsDirUrl = 'https://api.github.com/repos/Project-LetsChat/plugin-repo/contents/plugins';
+        const response = await fetch(pluginsDirUrl);
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        
+        const contents = await response.json();
+        const pluginDirs = contents.filter(item => item.type === 'dir');
+        
+        const plugins = [];
+        for (const dir of pluginDirs) {
+            try {
+                const dataUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/data.json`;
+                const dataResponse = await fetch(dataUrl);
+                if (!dataResponse.ok) {
+                    console.warn(`Skipping ${dir.name}: Could not fetch data.json`);
+                    continue;
+                }
+                const pluginData = await dataResponse.json();
+                plugins.push(pluginData);
+            } catch (error) {
+                console.error(`Error processing ${dir.name}:`, error);
+            }
+        }
+        return plugins;
+    } catch (error) {
+        console.error('Failed to fetch plugins:', error);
+        throw error;
+    }
+}
