@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             const downloadButton = document.getElementById('download-button');
             downloadButton.href = selectedPlugin.downloadUrl;
-            downloadButton.setAttribute('download', selectedPlugin.downloadUrl);
+            downloadButton.setAttribute('download', `${selectedPlugin.name.replace(/\s+/g, '-')}.zip`);
         }
 
         document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
@@ -105,12 +105,14 @@ async function fetchPlugins() {
         for (const dir of pluginDirs) {
             try {
                 const dataUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/data.json`;
+                const zipUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/plugin.zip`;
                 const dataResponse = await fetch(dataUrl);
                 if (!dataResponse.ok) {
                     console.warn(`Skipping ${dir.name}: Could not fetch data.json`);
                     continue;
                 }
                 const pluginData = await dataResponse.json();
+                pluginData.downloadUrl = zipUrl;
                 plugins.push(pluginData);
             } catch (error) {
                 console.error(`Error processing ${dir.name}:`, error);
