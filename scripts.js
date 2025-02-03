@@ -30,7 +30,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             pluginCard.appendChild(pluginTitle);
             pluginCard.appendChild(pluginCategory);
-
             pluginContainer.appendChild(pluginCard);
         });
     }
@@ -54,8 +53,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function toggleTheme() {
-        const isDarkMode = document.body.classList.toggle('dark-theme');
-        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
     }
 
     // Load saved theme
@@ -107,10 +106,8 @@ async function fetchPlugins() {
                 const dataUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/data.json`;
                 const zipUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/plugin.zip`;
                 const dataResponse = await fetch(dataUrl);
-                if (!dataResponse.ok) {
-                    console.warn(`Skipping ${dir.name}: Could not fetch data.json`);
-                    continue;
-                }
+                if (!dataResponse.ok) continue;
+                
                 const pluginData = await dataResponse.json();
                 pluginData.downloadUrl = zipUrl;
                 plugins.push(pluginData);
