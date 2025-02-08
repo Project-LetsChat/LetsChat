@@ -6,10 +6,10 @@ The version number does not matter in LetsChat TESTING as it is always unsupport
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 9.10.24 | :x:                |
+| 24.12.24| :x:                |
+| x.10.24 | :x:                |
 | x.9.24  | :x:                |
-| x.8.24  | :x:                |
-| < x.7.24| :x:                |
+| < x.8.24| :x:                |
 
 ## Reporting a Vulnerability
 

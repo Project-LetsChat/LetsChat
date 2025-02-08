@@ -5,69 +5,69 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-firebaseConfig = {
-  apiKey: "",
-  authDomain: "",
-  databaseURL: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: ""
-}
+const appwrite = new Appwrite();
+appwrite
+  .setEndpoint('https://[YOUR_APPWRITE_SERVER]') // Your AppWrite Endpoint
+  .setProject('[PROJECT_ID]'); // Your Project ID
 
+const databaseId = '[DATABASE_ID]';
+const roomsCollectionId = '[COLLECTION_ID]';
 
+const user_name = localStorage.getItem("user_name");
+document.getElementById("user_name").innerHTML = `Welcome ${sanitizeHTML(user_name)}!`;
 
-  firebase.initializeApp(firebaseConfig);
-
-// Function to safely escape HTML characters
-function escapeHTML(html) {
-  var element = document.createElement('div');
+// Function to safely sanitize HTML
+function sanitizeHTML(html) {
+  const element = document.createElement('div');
   if (html) {
-      element.innerText = html;
-      return element.innerHTML;
+    element.innerText = html;
+    return element.innerHTML;
   }
   return '';
 }
 
-let user_name = localStorage.getItem("user_name");
-let escaped_user_name = escapeHTML(user_name);
+async function addRoom() {
+  const room_name = document.getElementById("room_name").value;
 
-document.getElementById("user_name").innerHTML = "Welcome " + escaped_user_name + "!";
-
-function addRoom()
-{
-  room_name = document.getElementById("room_name").value;
-
-  firebase.database().ref("/").child(room_name).update({
-    purpose : "adding room name"
-  });
+  try {
+    await appwrite.database.createDocument(roomsCollectionId, 'unique()', {
+      name: room_name,
+      purpose: "adding room name",
+    });
 
     localStorage.setItem("room_name", room_name);
-    
     window.location = "kwitter_page.html";
+  } catch (error) {
+    console.error("Error adding room:", error);
+  }
 }
 
-function getData() {  firebase.database().ref("/").on('value', function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key;
-       Room_names = childKey;
-       console.log("Room Name - " + Room_names);
-      row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
+async function getData() {
+  try {
+    const response = await appwrite.database.listDocuments(roomsCollectionId);
+
+    document.getElementById("output").innerHTML = "";
+    response.documents.forEach((doc) => {
+      const room_name = sanitizeHTML(doc.name);
+      const row = `<div class='room_name' id=${room_name} onclick='redirectToRoomName("${room_name}")'>#${room_name}</div><hr>`;
       document.getElementById("output").innerHTML += row;
     });
-  });
-
+  } catch (error) {
+    console.error("Error fetching rooms:", error);
+  }
 }
 
-getData();
-
-function redirectToRoomName(name)
-{
+function redirectToRoomName(name) {
   console.log(name);
   localStorage.setItem("room_name", name);
-    window.location = "kwitter_page.html";
+  window.location = "kwitter_page.html";
 }
 
 function logout() {
-localStorage.removeItem("user_name");
-localStorage.removeItem("room_name");
-    window.location = "index.html";
+  localStorage.removeItem("user_name");
+  localStorage.removeItem("room_name");
+  window.location = "index.html";
 }
+
+// Fetch rooms initially
+getData();

@@ -4,89 +4,93 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f0f0f0; /* Default light theme background */
-    color: #333; /* Default text color */
+    background-color: #f0f0f0;
+    color: #333;
 }
 
+/* Header */
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space out elements in the header */
-    background-color: #333; /* Default light theme header */
+    justify-content: space-between; /* Space out elements */
+    background-color: #333;
     color: white;
     padding: 1rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 header h1 {
-    flex-grow: 1;
     margin: 0;
+    flex-grow: 1;
 }
 
+/* Search & Category Dropdown */
 #search {
-    margin-left: 1rem;
     padding: 0.5rem;
     width: 60%;
     max-width: 400px;
+    margin-right: 1rem;
 }
 
 #category-select {
-    margin-left: 1rem;
     padding: 0.5rem;
     width: 30%;
     max-width: 200px;
 }
 
-/* Theme Toggle */
-header .theme-toggle-wrapper {
+/* === ✅ FIXED: Dark Mode Toggle (Text on Left, Slider on Right) === */
+.theme-toggle-wrapper {
     display: flex;
-    align-items: center; /* Vertically align slider and text */
-    justify-content: flex-end; /* Align to the right */
-    gap: 0.25rem; /* Minimal gap between slider and text */
-    margin-left: auto; /* Push to the far right */
-    margin-right: 1rem; /* Add spacing from the right edge */
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
 }
 
-header input[type="checkbox"].theme-toggle {
-    display: none; /* Hide the default checkbox */
+/* Dark Mode Label (Text on Left) */
+.theme-toggle-wrapper span {
+    font-size: 14px;
+    white-space: nowrap;
+    order: 1; /* Keep text on the left */
 }
 
-header label[for="theme-toggle"] {
-    display: inline-block;
-    position: relative;
+/* Hide default checkbox */
+.theme-toggle {
+    display: none;
+}
+
+/* Custom Slider */
+.theme-toggle + label {
+    display: block;
     width: 50px;
     height: 25px;
-    background-color: rgba(200, 200, 200, 0.8); /* Light mode slider background */
+    background: #ccc;
     border-radius: 25px;
+    position: relative;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
+    order: 2; /* Move slider to the right side */
 }
 
-header label[for="theme-toggle"]::before {
+/* Slider knob */
+.theme-toggle + label::before {
     content: '';
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: #ffffff; /* White dot */
     border-radius: 50%;
+    background: white;
     top: 2.5px;
     left: 2.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Light shadow for visibility */
+    transition: transform 0.3s ease;
 }
 
-header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"] {
-    background-color: rgba(70, 70, 70, 0.9); /* Dark mode slider background */
+/* Checked (Dark Mode) */
+.theme-toggle:checked + label {
+    background: #2196F3;
 }
 
-header input[type="checkbox"].theme-toggle:checked + label[for="theme-toggle"]::before {
+.theme-toggle:checked + label::before {
     transform: translateX(25px);
-}
-
-
-header .theme-toggle-wrapper span {
-    margin: 0;
-    font-size: 0.9rem;
 }
 
 /* Main Layout */
@@ -103,6 +107,7 @@ main {
     gap: 1rem;
 }
 
+/* Plugin Cards */
 .plugin-card {
     background-color: white;
     border: 1px solid #ddd;
@@ -125,6 +130,7 @@ main {
     color: #555;
 }
 
+/* Plugin Details */
 .plugin-detail {
     background-color: white;
     border: 1px solid #ddd;
@@ -170,18 +176,20 @@ footer {
     bottom: 0;
 }
 
-/* Dark Theme */
+/* === 🌙 Dark Theme === */
 body.dark-theme {
     background-color: #121212;
     color: #e0e0e0;
 }
 
+/* Dark Mode Header */
 body.dark-theme header {
     background-color: rgba(30, 30, 30, 0.8);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
+/* Dark Mode Plugin Cards */
 body.dark-theme .plugin-card {
     background-color: rgba(40, 40, 40, 0.9);
     backdrop-filter: blur(8px);
@@ -197,6 +205,7 @@ body.dark-theme .plugin-card:hover {
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
 }
 
+/* Dark Mode Plugin Details */
 body.dark-theme .plugin-detail {
     background-color: rgba(40, 40, 40, 0.9);
     backdrop-filter: blur(12px);
@@ -205,12 +214,13 @@ body.dark-theme .plugin-detail {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* Dark Mode Footer */
 body.dark-theme footer {
     background-color: rgba(30, 30, 30, 0.8);
     backdrop-filter: blur(10px);
 }
 
-/* Dark Theme Buttons */
+/* Dark Mode Buttons */
 body.dark-theme .download-button,
 body.dark-theme .repo-link,
 body.dark-theme .back-button {
@@ -222,58 +232,4 @@ body.dark-theme .download-button:hover,
 body.dark-theme .repo-link:hover,
 body.dark-theme .back-button:hover {
     background-color: rgba(70, 70, 70, 0.9);
-}
-
-/* Accessibility Panel */
-.accessibility-panel {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    background-color: #ffffff;
-    color: #333;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    width: 300px;
-    display: none;
-    z-index: 1000;
-}
-
-.accessibility-panel[aria-hidden="false"] {
-    display: block;
-}
-
-.accessibility-btn {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    background-color: #333;
-    color: #ffffff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-.accessibility-btn:focus {
-    outline: 3px solid #ffcc00;
-}
-
-/* High Contrast Mode */
-body.high-contrast {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-body.high-contrast a {
-    color: #ffff00;
-    text-decoration: underline;
-}
-
-body.high-contrast .plugin-card {
-    background-color: #000000;
-    border: 2px solid #ffffff;
-    color: #ffffff;
 }
