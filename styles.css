@@ -12,7 +12,7 @@ body {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Space out elements in the header */
+    justify-content: space-between; /* Space out elements */
     background-color: #333;
     color: white;
     padding: 1rem;
@@ -38,13 +38,19 @@ header h1 {
     max-width: 200px;
 }
 
-/* === 🔥 FIXED: Dark Mode Toggle & Text Alignment === */
+/* === ✅ FIXED: Dark Mode Toggle (Text on Left, Slider on Right) === */
 .theme-toggle-wrapper {
     display: flex;
     align-items: center;
-    gap: 8px; /* Proper spacing between slider and text */
-    margin-left: auto;
-    margin-right: 1rem;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+/* Dark Mode Label (Text on Left) */
+.theme-toggle-wrapper span {
+    font-size: 14px;
+    white-space: nowrap;
+    order: 1; /* Keep text on the left */
 }
 
 /* Hide default checkbox */
@@ -52,7 +58,7 @@ header h1 {
     display: none;
 }
 
-/* Custom slider */
+/* Custom Slider */
 .theme-toggle + label {
     display: block;
     width: 50px;
@@ -62,6 +68,7 @@ header h1 {
     position: relative;
     cursor: pointer;
     transition: background 0.3s ease;
+    order: 2; /* Move slider to the right side */
 }
 
 /* Slider knob */
@@ -84,13 +91,6 @@ header h1 {
 
 .theme-toggle:checked + label::before {
     transform: translateX(25px);
-}
-
-/* Ensure text stays properly positioned */
-.theme-toggle-wrapper span {
-    font-size: 14px;
-    white-space: nowrap;
-    margin-left: 5px; /* Add spacing between slider and text */
 }
 
 /* Main Layout */
