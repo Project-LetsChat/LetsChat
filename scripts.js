@@ -1,19 +1,23 @@
 document.addEventListener('DOMContentLoaded', async () => {
     let plugins = [];
+    const pluginContainer = document.getElementById('plugin-container');
+    const searchInput = document.getElementById('search');
+    const categorySelect = document.getElementById('category-select');
+
+    // Show a loading message
+    if (pluginContainer) {
+        pluginContainer.innerHTML = '<p class="loading-message">Loading plugins...</p>';
+    }
+
     try {
         plugins = await fetchPlugins();
     } catch (error) {
         console.error('Error fetching plugins:', error);
-        const pluginContainer = document.getElementById('plugin-container');
         if (pluginContainer) {
             pluginContainer.innerHTML = '<p class="error-message">Failed to load plugins. Please try again later.</p>';
         }
         return;
     }
-
-    const pluginContainer = document.getElementById('plugin-container');
-    const searchInput = document.getElementById('search');
-    const categorySelect = document.getElementById('category-select');
 
     function displayPlugins(pluginsToDisplay) {
         pluginContainer.innerHTML = '';
@@ -53,8 +57,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     function toggleTheme() {
-        document.body.classList.toggle('dark-theme');
-        localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
+        const isDarkMode = document.body.classList.toggle('dark-theme');
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     }
 
     // Load saved theme
@@ -70,6 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         displayPlugins(plugins);
     }
 
+    // Handle Plugin Details Page
     if (window.location.pathname.endsWith('plugin.html')) {
         const selectedPlugin = JSON.parse(localStorage.getItem('selectedPlugin'));
         if (selectedPlugin) {
@@ -91,15 +96,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+// Fetch Plugins from GitHub Repo
 async function fetchPlugins() {
     try {
         const pluginsDirUrl = 'https://api.github.com/repos/Project-LetsChat/plugin-repo/contents/plugins';
         const response = await fetch(pluginsDirUrl);
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         
         const contents = await response.json();
         const pluginDirs = contents.filter(item => item.type === 'dir');
-        
+
         const plugins = [];
         for (const dir of pluginDirs) {
             try {
