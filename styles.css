@@ -224,41 +224,48 @@ body.dark-theme .back-button:hover {
     background-color: rgba(70, 70, 70, 0.9);
 }
 
+/* Theme Toggle Wrapper */
 .theme-toggle-wrapper {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: center; /* Vertically align the toggle and text */
+    gap: 8px; /* Space between slider and text */
     margin-left: 20px;
 }
 
+/* Hide the default checkbox */
 .theme-toggle {
-    width: 40px;
-    height: 20px;
-    margin: 0;
+    display: none;
 }
 
+/* Slider Background */
 .theme-toggle + label {
-    position: relative;
-    display: inline-block;
-    width: 40px;
-    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 45px;
+    height: 24px;
     background: #ccc;
-    border-radius: 20px;
+    border-radius: 12px;
     cursor: pointer;
+    padding: 3px;
+    position: relative;
+    transition: background 0.3s ease;
 }
 
+/* Moving Circle */
 .theme-toggle + label::after {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     border-radius: 50%;
     background: white;
-    top: 2px;
-    left: 2px;
-    transition: transform 0.2s;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s ease;
 }
 
+/* Checked (Dark Mode) */
 .theme-toggle:checked + label {
     background: #2196F3;
 }
@@ -267,7 +274,8 @@ body.dark-theme .back-button:hover {
     transform: translateX(20px);
 }
 
-.theme-toggle-wrapper span {
+/* Ensure text stays properly positioned */
+.theme-toggle-wrapper label + span {
     font-size: 14px;
     white-space: nowrap;
 }
