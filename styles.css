@@ -223,3 +223,51 @@ body.dark-theme .repo-link:hover,
 body.dark-theme .back-button:hover {
     background-color: rgba(70, 70, 70, 0.9);
 }
+
+.theme-toggle-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.theme-toggle {
+    width: 40px;
+    height: 20px;
+    margin: 0;
+}
+
+.theme-toggle + label {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.theme-toggle + label::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: white;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.2s;
+}
+
+.theme-toggle:checked + label {
+    background: #2196F3;
+}
+
+.theme-toggle:checked + label::after {
+    transform: translateX(20px);
+}
+
+.theme-toggle-wrapper span {
+    font-size: 14px;
+    white-space: nowrap;
+}
