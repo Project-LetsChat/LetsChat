@@ -227,8 +227,9 @@ body.dark-theme .back-button:hover {
 /* Theme Toggle Wrapper */
 .theme-toggle-wrapper {
     display: flex;
-    align-items: center; /* Vertically align the toggle and text */
-    gap: 8px; /* Space between slider and text */
+    align-items: center; /* Align slider and text properly */
+    justify-content: flex-start; /* Keep everything aligned properly */
+    gap: 12px; /* More spacing between slider and text */
     margin-left: 20px;
 }
 
@@ -237,17 +238,16 @@ body.dark-theme .back-button:hover {
     display: none;
 }
 
-/* Slider Background */
+/* Custom Slider */
 .theme-toggle + label {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 45px;
+    width: 50px;
     height: 24px;
     background: #ccc;
     border-radius: 12px;
     cursor: pointer;
-    padding: 3px;
+    padding: 2px;
     position: relative;
     transition: background 0.3s ease;
 }
@@ -256,12 +256,12 @@ body.dark-theme .back-button:hover {
 .theme-toggle + label::after {
     content: '';
     position: absolute;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     background: white;
-    top: 3px;
-    left: 3px;
+    top: 2px;
+    left: 2px;
     transition: transform 0.3s ease;
 }
 
@@ -271,11 +271,12 @@ body.dark-theme .back-button:hover {
 }
 
 .theme-toggle:checked + label::after {
-    transform: translateX(20px);
+    transform: translateX(26px);
 }
 
-/* Ensure text stays properly positioned */
+/* Fix for overlapping text */
 .theme-toggle-wrapper label + span {
     font-size: 14px;
     white-space: nowrap;
+    margin-left: 4px; /* Add spacing between slider and text */
 }
