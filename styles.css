@@ -233,3 +233,14 @@ body.dark-theme .repo-link:hover,
 body.dark-theme .back-button:hover {
     background-color: rgba(70, 70, 70, 0.9);
 }
+
+/* Add compatible with styling */
+#plugin-compatible-with {
+    color: #666;
+    font-size: 0.9em;
+    margin: 0.5rem 0;
+}
+
+.dark-theme #plugin-compatible-with {
+    color: #aaa;
+}

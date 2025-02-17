@@ -90,6 +90,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             const downloadButton = document.getElementById('download-button');
             downloadButton.href = selectedPlugin.downloadUrl;
             downloadButton.setAttribute('download', `${selectedPlugin.name.replace(/\s+/g, '-')}.zip`);
+
+            const compatibleElement = document.getElementById('plugin-compatible-with');
+            compatibleElement.textContent = `Compatible with: ${selectedPlugin.compatibleWith || 'Not specified'}`;
         }
 
         document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
