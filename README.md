@@ -1,4 +1,4 @@
-# Lets-Chat
+# LetsChat
 LetsChat is a base that can be built upon to create a social media platform.
 
 This project is licensed under the MPL-2.0. 
