@@ -34,6 +34,8 @@ justice or human rights (which are certainly noble causes), then you
 should join an organization whose primary goal is to fight for those
 causes.
 
+Political discussions are permitted only when directly related to software freedom, digital rights, or government tech policy.
+
 ## 3. Actions Define Us
 
 People should not be prejudged because of their race, ethnicity,
@@ -53,6 +55,8 @@ equal, it is insulting to both individuals. The term inequality should
 not have a negative connotation; in fact, our inequality should be
 celebrated. It is what makes each of us unique, and it is what makes our
 community diverse.
+
+Diversity of skills and perspectives strengthens our community. We celebrate unique contributions while ensuring equitable opportunities for all.
 
 ## 5. Acceptance Rather Than Tolerance
 
@@ -92,6 +96,8 @@ cannot admit defeat or admit that they were wrong. If you are in a
 situation where martyrdom is your only course of action, then you are
 probably championing the wrong cause. Victim mentality and
 self-martyrdom will not be tolerated.
+
+Constructive criticism is welcome, but habitual blame-shifting without accountability harms the community. Report grievances through official channels for fair resolution.
 
 ## 8. Your Value To The Community
 
