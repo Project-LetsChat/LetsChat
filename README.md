@@ -1,7 +1,7 @@
 # LetsChat
-LetsChat is a base that can be built upon to create a social media platform.
+LetsChat is a self-hostable internet forums software.
 
-This project is licensed under the MPL-2.0. 
+This project is licensed under the AGPLV3. 
 
 If you find a bug make a Pull request that fixes the bug or file an Issue.
 
@@ -11,15 +11,15 @@ Use the <a href="https://github.com/Project-LetsChat/LetsChat/wiki/">LetsChat Wi
 
 For a guide on how to set up a LetsChat instance, visit <a href="https://github.com/Project-LetsChat/LetsChat/wiki/Setting-up-a-LetsChat-instance/">this</a> link.
 
-<a href="https://project-letschat.github.io/NovaChat/index.html">NovaChat</a> is developed by LetsChat and is a great example/proof-of-concept of how to build a social media website on top of LetsChat, you can use it as a reference for your project if you are looking for one but it is suggested that you use your creativity instead.
+<a href="https://project-letschat.github.io/NovaChat/index.html">NovaChat</a> is developed by LetsChat and is a great example/proof-of-concept of how to build a LetsChat instance, you can use it as a reference for your project if you are looking for one but it is suggested that you use your creativity instead.
 
 #### NOTE: Before interacting with the project read the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>.
 
 ## Licensing
 
-This project is licensed under the terms of the MPL-2.0 on GitHub.
+This project is licensed under the terms of the AGPLV3 on GitHub.
 
-- GitHub: Licensed under the [MPL-2.0](LICENSE).
+- GitHub: Licensed under the [AGPLV3](LICENSE).
 
 
 Please take a look at the respective LICENSE files for detailed information.
