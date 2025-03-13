@@ -1,130 +1,100 @@
-const appwrite = new Appwrite();
-appwrite
-  .setEndpoint('https://[HOSTNAME]/v1') // Replace with your endpoint
-  .setProject('[PROJECT_ID]'); // Replace with your project ID
+/* LetsChat - A social media platform framework
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
 
-const databaseId = '[DATABASE_ID]';
-const messagesCollectionId = '[MESSAGES_COLLECTION_ID]';
-
-let unsubscribe;
-
-// Function to send message using AppWrite
-async function send() {
-  const msg = document.getElementById("msg").value;
-  const sanitizedMsg = sanitizeHTML(msg);
-  const user_name = localStorage.getItem("user_name");
-  const room_name = localStorage.getItem("room_name");
-
-  try {
-    await appwrite.database.createDocument(messagesCollectionId, 'unique()', {
-      user_name: user_name,
-      message: sanitizedMsg,
-      like: 0,
-      room_name: room_name
-    });
-    document.getElementById("msg").value = "";
-  } catch (error) {
-    console.error("Error sending message:", error);
-  }
+// Firebase configuration
+firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 }
 
-// Function to display messages
-function displayMessages(messages) {
-  messages.forEach((message) => {
-    const sanitizedData = {
-      name: sanitizeHTML(message.user_name),
-      message: sanitizeHTML(message.message),
-      like: sanitizeHTML(String(message.like)),
-      id: message.$id
-    };
+firebase.initializeApp(firebaseConfig);
+user_name = localStorage.getItem("user_name");
+room_name = localStorage.getItem("room_name");
 
-    const existingMessage = document.getElementById(sanitizedData.id);
-    if (!existingMessage) {
-      const nameWithTag = `<h4>${sanitizedData.name}<img class='user_tick' src='tick.png'></h4>`;
-      const messageWithTag = `<h4 class='message_h4'>${sanitizedData.message}</h4>`;
-      const likeButton = `<button class='btn btn-warning' id="${sanitizedData.id}" value="${sanitizedData.like}" onclick='updateLike("${sanitizedData.id}")'>`;
-      const spanTag = `<span class='glyphicon glyphicon-thumbs-up'>Like: ${sanitizedData.like}</span></button><hr>`;
+// Function to send message
+function send() {
+  msg = document.getElementById("msg").value;
+  // Sanitize message before sending
+  msg = sanitizeHTML(msg);
 
-      const row = nameWithTag + messageWithTag + likeButton + spanTag;
-      document.getElementById("output").innerHTML += row;
-    }
+  firebase.database().ref(room_name).push({
+    name: user_name,
+    message: msg,
+    like: 0
   });
+
+  document.getElementById("msg").value = "";
 }
 
-// Function to update like in UI
-function updateLikeInUI(message) {
-  const element = document.getElementById(message.$id);
-  if (element) {
-    element.value = message.like;
-    element.querySelector('span').textContent = `Like: ${message.like}`;
-  }
-}
-
-// Function to get data and subscribe to real-time updates
-async function getData() {
-  const room_name = localStorage.getItem("room_name");
-  
-  try {
-    // Clear existing messages
-    document.getElementById("output").innerHTML = "";
-
-    // Fetch initial messages
-    const response = await appwrite.database.listDocuments(messagesCollectionId, [
-      Appwrite.Query.equal('room_name', room_name),
-      Appwrite.Query.orderAsc('$createdAt')
-    ]);
-    displayMessages(response.documents);
-
-    // Subscribe to real-time updates
-    unsubscribe = appwrite.subscribe(`databases.${databaseId}.collections.${messagesCollectionId}.documents`, (response) => {
-      if (response.events.includes('databases.*.collections.*.documents.*.create')) {
-        const message = response.payload;
-        if (message.room_name === room_name) {
-          displayMessages([message]);
-        }
-      } else if (response.events.includes('databases.*.collections.*.documents.*.update')) {
-        const updatedMessage = response.payload;
-        updateLikeInUI(updatedMessage);
-      }
-    });
-
-  } catch (error) {
-    console.error("Error fetching messages:", error);
-  }
-}
-
-// Function to update likes
-async function updateLike(message_id) {
-  try {
-    const currentDoc = await appwrite.database.getDocument(messagesCollectionId, message_id);
-    const updatedLikes = currentDoc.like + 1;
-    
-    await appwrite.database.updateDocument(messagesCollectionId, message_id, {
-      like: updatedLikes
-    });
-  } catch (error) {
-    console.error("Error updating like:", error);
-  }
-}
-
-// Sanitize HTML function
+// Function to sanitize user inputs
 function sanitizeHTML(str) {
-  const temp = document.createElement('div');
+  var temp = document.createElement('div');
   temp.textContent = str;
   return temp.innerHTML;
 }
 
-// Initial call to get data and start subscription
+// Function to get data and display messages
+function getData() {
+  firebase.database().ref("/" + room_name).on('value', function(snapshot) {
+    document.getElementById("output").innerHTML = "";
+    snapshot.forEach(function(childSnapshot) {
+      childKey = childSnapshot.key;
+      childData = childSnapshot.val();
+      if (childKey != "purpose") {
+        firebase_message_id = sanitizeHTML(childKey);
+        message_data = childData;
+
+        console.log(firebase_message_id);
+        // Sanitize message data before logging
+        var sanitized_message_data = {
+          name: sanitizeHTML(message_data['name']),
+          message: sanitizeHTML(message_data['message']),
+          like: sanitizeHTML(String(message_data['like']))
+        };
+        console.log(sanitized_message_data);
+
+        // Construct HTML tags with sanitized inputs
+        var name_with_tag = "<h4>" + sanitized_message_data.name + "<img class='user_tick' src='tick.png'></h4>";
+        var message_with_tag = "<h4 class='message_h4'>" + sanitized_message_data.message + "</h4>";
+        var like_button = "<button class='btn btn-warning' id=" + firebase_message_id + " value=" + sanitized_message_data.like + " onclick='updateLike(this.id)'>";
+        var span_with_tag = "<span class='glyphicon glyphicon-thumbs-up'>Like: " + sanitized_message_data.like + "</span></button><hr>";
+
+        // Combine the constructed tags into a row
+        var row = name_with_tag + message_with_tag + like_button + span_with_tag;
+        
+        // Append the row to the output
+        document.getElementById("output").innerHTML += row;
+      }
+    });
+  });
+}
+
+// Call getData to fetch and display messages
 getData();
 
-// Cleanup subscription on logout or page unload
-window.addEventListener('beforeunload', () => {
-  if (unsubscribe) {
-    unsubscribe();
-  }
-});
+// Function to update likes
+function updateLike(message_id) {
+  console.log("clicked on like button - " + message_id);
+  button_id = message_id;
+  likes = document.getElementById(button_id).value;
+  updated_likes = Number(likes) + 1;
+  console.log(updated_likes);
 
-// Logout function remains the same
+  firebase.database().ref(room_name).child(message_id).update({
+    like: updated_likes
+  });
+}
+
+// Function to log out
 function logout() {
   localStorage.removeItem("user_name");
   localStorage.removeItem("room_name");
