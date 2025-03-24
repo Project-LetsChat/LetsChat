@@ -21,9 +21,10 @@ This project is licensed under the terms of the AGPLV3 on GitHub.
 
 - GitHub: Licensed under the [AGPLV3](LICENSE).
 
-
 Please take a look at the respective LICENSE files for detailed information.
 
 <br>
 
 If you want to contribute, check out the <a href="CONTRIBUTING.md">guide</a>.
+
+<h6>The LetsChat PREVIOUS branch has now been removed and replaced with <a href="https://archive.org/details/lets-chat-archive/">this</a>.</h6>
