@@ -20,6 +20,7 @@ const ASSETS = [
   '/kwitter_page.js',
   '/m2.png',
   '/logo.png',
+  '/offline.html',
   // Add other assets you want to cache
 ];
 

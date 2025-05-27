@@ -1,0 +1,74 @@
+<!--Copyright (C) 2023-2025 Bhargav Ekbote <bhargavsdeal@gmail.com>
+This file is part of LetsChat.
+
+LetsChat is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+LetsChat is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with LetsChat. If not, see <https://www.gnu.org/licenses/>.-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>LetsChat - Offline</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#006494">
+    
+    <!-- Match existing styling -->
+    <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <center>
+        <div class="container offline-container">
+            <h1 class="header">
+                LetsChat
+                <sup>
+                    <img src="m2.png" alt="logo" style="width: 40px;">
+                </sup>
+            </h1>
+            
+            <div class="offline-content">
+                <img src="logo.png" class="logo" style="width: 100px; margin: 20px;">
+                <h2>You're Offline! 📶</h2>
+                <p class="text-muted">Don't worry, you can still access previously loaded content.</p>
+                
+                <div class="offline-actions">
+                    <button onclick="location.reload()" class="btn btn-primary">
+                        Retry Connection
+                    </button>
+                    
+                    <div style="margin-top: 20px;">
+                        <p>Available offline features:</p>
+                        <ul class="list-unstyled">
+                            <li>▶ View cached messages</li>
+                            <li>▶ Access previous chats</li>
+                            <li>▶ Read existing content</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="text-info" style="margin-top: 30px;">
+                        <small>New messages will sync when you're back online</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </center>
+
+    <!-- Service worker registration -->
+    <script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful');
+            })
+            .catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+    }
+    </script>
+</body>
+</html>
