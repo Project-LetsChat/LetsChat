@@ -113,17 +113,30 @@ async function fetchPlugins() {
         for (const dir of pluginDirs) {
             try {
                 const dataUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/data.json`;
-                const zipUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/plugin.zip`;
                 const dataResponse = await fetch(dataUrl);
-                if (!dataResponse.ok) continue;
+                if (!dataResponse.ok) {
+                    console.warn(`Skipping ${dir.name}: Failed to fetch data.json`);
+                    continue;
+                }
                 
-                const pluginData = await dataResponse.json();
-                pluginData.downloadUrl = zipUrl;
+                // Add JSON parsing validation
+                const text = await dataResponse.text();
+                const pluginData = JSON.parse(text);
+                
+                // Validate required fields
+                if (!pluginData.id || !pluginData.name) {
+                    console.warn(`Skipping ${dir.name}: Missing required fields`);
+                    continue;
+                }
+
+                pluginData.downloadUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/plugin.zip`;
                 plugins.push(pluginData);
             } catch (error) {
                 console.error(`Error processing ${dir.name}:`, error);
             }
         }
+        // Logs to console that plugins have been loaded.
+        console.log('Loaded plugins:', plugins);
         return plugins;
     } catch (error) {
         console.error('Failed to fetch plugins:', error);
