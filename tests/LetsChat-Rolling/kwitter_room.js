@@ -1,73 +1,75 @@
-/* LetsChat - A social media platform framework
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */
+/*Copyright (C) 2023-2025 Bhargav Ekbote <bhargavsdeal@gmail.com>
+This file is part of LetsChat.
 
-const appwrite = new Appwrite();
-appwrite
-  .setEndpoint('https://[YOUR_APPWRITE_SERVER]') // Your AppWrite Endpoint
-  .setProject('[PROJECT_ID]'); // Your Project ID
+LetsChat is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-const databaseId = '[DATABASE_ID]';
-const roomsCollectionId = '[COLLECTION_ID]';
+LetsChat is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
 
-const user_name = localStorage.getItem("user_name");
-document.getElementById("user_name").innerHTML = `Welcome ${sanitizeHTML(user_name)}!`;
+You should have received a copy of the GNU Affero General Public License along with LetsChat. If not, see <https://www.gnu.org/licenses/>.*/
 
-// Function to safely sanitize HTML
-function sanitizeHTML(html) {
-  const element = document.createElement('div');
+firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
+}
+
+
+
+  firebase.initializeApp(firebaseConfig);
+
+// Function to safely escape HTML characters
+function escapeHTML(html) {
+  var element = document.createElement('div');
   if (html) {
-    element.innerText = html;
-    return element.innerHTML;
+      element.innerText = html;
+      return element.innerHTML;
   }
   return '';
 }
 
-async function addRoom() {
-  const room_name = document.getElementById("room_name").value;
+let user_name = localStorage.getItem("user_name");
+let escaped_user_name = escapeHTML(user_name);
 
-  try {
-    await appwrite.database.createDocument(roomsCollectionId, 'unique()', {
-      name: room_name,
-      purpose: "adding room name",
-    });
+document.getElementById("user_name").innerHTML = "Welcome " + escaped_user_name + "!";
+
+function addRoom()
+{
+  room_name = document.getElementById("room_name").value;
+
+  firebase.database().ref("/").child(room_name).update({
+    purpose : "adding room name"
+  });
 
     localStorage.setItem("room_name", room_name);
+    
     window.location = "kwitter_page.html";
-  } catch (error) {
-    console.error("Error adding room:", error);
-  }
 }
 
-async function getData() {
-  try {
-    const response = await appwrite.database.listDocuments(roomsCollectionId);
-
-    document.getElementById("output").innerHTML = "";
-    response.documents.forEach((doc) => {
-      const room_name = sanitizeHTML(doc.name);
-      const row = `<div class='room_name' id=${room_name} onclick='redirectToRoomName("${room_name}")'>#${room_name}</div><hr>`;
+function getData() {  firebase.database().ref("/").on('value', function(snapshot) { document.getElementById("output").innerHTML = ""; snapshot.forEach(function(childSnapshot) { childKey  = childSnapshot.key;
+       Room_names = childKey;
+       console.log("Room Name - " + Room_names);
+      row = "<div class='room_name' id="+Room_names+" onclick='redirectToRoomName(this.id)' >#"+ Room_names +"</div><hr>";
       document.getElementById("output").innerHTML += row;
     });
-  } catch (error) {
-    console.error("Error fetching rooms:", error);
-  }
+  });
+
 }
 
-function redirectToRoomName(name) {
+getData();
+
+function redirectToRoomName(name)
+{
   console.log(name);
   localStorage.setItem("room_name", name);
-  window.location = "kwitter_page.html";
+    window.location = "kwitter_page.html";
 }
 
 function logout() {
-  localStorage.removeItem("user_name");
-  localStorage.removeItem("room_name");
-  window.location = "index.html";
+localStorage.removeItem("user_name");
+localStorage.removeItem("room_name");
+    window.location = "index.html";
 }
-
-// Fetch rooms initially
-getData();
