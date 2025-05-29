@@ -1,9 +1,11 @@
-<!--/* LetsChat - A social media platform framework
- *
- * This Source Code Form is subject to the terms of the Mozilla Public
- * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- */-->
+<!--Copyright (C) 2023-2025 Bhargav Ekbote <bhargavsdeal@gmail.com>
+This file is part of LetsChat.
+
+LetsChat is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+LetsChat is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with LetsChat. If not, see <https://www.gnu.org/licenses/>.-->
 
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,8 @@
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/appwrite"></script>
+
 <link href="https://fonts.googleapis.com/css?family=Yeon+Sung&amp;display=swap" rel="stylesheet"><meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +30,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <link rel="stylesheet" type="text/css" href="style.css">
-<link rel="stylesheet" href="navbar.css">
+<link rel="stylesheet" href="Components/navbar/style.css">
+
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#006494">
 
 </head>
 <body>
@@ -59,7 +66,6 @@ Navigation bar code here
 	<div class="collapse navbar-collapse" id="myNavbar">
 		<ul class="nav navbar-nav">
 			<li><a href="filter.html">Realtime Filters</a></li>
-			<li><a href="https://project-letschat.github.io/plugin-store/index.html">Plugin Store</a></li>
 			<li><a href="https://project-letschat.github.io/NovaChat/index.html">NovaChat</a></li>
 			<li><a href="#contact"> </a></li>
 		</ul>
