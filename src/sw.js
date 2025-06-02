@@ -7,7 +7,7 @@ LetsChat is distributed in the hope that it will be useful, but WITHOUT ANY WARR
 
 You should have received a copy of the GNU Affero General Public License along with LetsChat. If not, see <https://www.gnu.org/licenses/>.*/
 
-const CACHE_NAME = 'letschat-v1';
+const CACHE_NAME = 'letschat-v6.2';
 const ASSETS = [
   '/',
   '/index.html',
