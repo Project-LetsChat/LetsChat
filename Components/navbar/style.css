@@ -1,0 +1,64 @@
+/*Copyright (C) 2023-2025 Bhargav Ekbote <bhargavsdeal@gmail.com>
+This file is part of LetsChat.
+
+LetsChat is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+LetsChat is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License along with LetsChat. If not, see <https://www.gnu.org/licenses/>.*/
+
+ #video{
+
+    width: 100%;
+    height: 500px;
+    border: none;
+    
+
+}
+
+.travel_mainDIV{
+
+    border: 1px solid lightgrey;
+
+}
+
+.travel_mainDIV img{
+
+    width: 100%;
+
+}
+
+.travel_mainDIV h5 , .travel_mainDIV p{
+
+    margin: 20px;
+    
+}
+
+.movie_head
+{
+    font-size: 20px;
+    padding: 6px 22px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.movie_head i
+{
+    float: right;
+
+}
+
+.achievement_text span
+{
+    color: orange;
+}
+
+.whatsnew
+{
+    margin-bottom: 20px;
+}
+
+#contact iframe
+{
+    width: 100%;
+}

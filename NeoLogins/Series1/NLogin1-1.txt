@@ -21,12 +21,16 @@ You should have received a copy of the GNU Affero General Public License along w
 <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
 <script src="kwitter.js"></script>
+
 <!-- PWA support -->
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#006494">
 <!-- iOS support -->
 <link rel="apple-touch-icon" href="icon-192x192.png">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="robots" content="index,follow">
+
    </head>
    
 <style>

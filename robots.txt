@@ -1,0 +1,12 @@
+robots.txt
+User-agent: *
+Disallow: /kwitter_page.html
+Disallow: /filter.html
+Disallow: /offline.html
+Disallow: /service-worker.js
+Disallow: /manifest.json
+Allow: /index.html
+Allow: /kwitter_room.html
+Allow: /style.css
+Allow: /logo.png
+Sitemap: https://your-domain.com/sitemap.xml
