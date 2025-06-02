@@ -14,7 +14,7 @@ const ASSETS = [
   '/kwitter_room.html',
   '/kwitter_page.html',
   '/style.css',
-  '/Components/navbar/style.css',
+  '/navbar.css',
   '/kwitter.js',
   '/kwitter_room.js',
   '/kwitter_page.js',
