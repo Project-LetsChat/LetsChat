@@ -1,16 +1,26 @@
+// scripts.js
 document.addEventListener('DOMContentLoaded', async () => {
-    let plugins = [];
-    const pluginContainer = document.getElementById('plugin-container');
-    const searchInput = document.getElementById('search');
-    const categorySelect = document.getElementById('category-select');
+    // Define multiple plugin repositories
+    const pluginRepositories = [
+        "https://github.com/Project-LetsChat/plugin-repo.git",
+        "",
+        // Add more repositories as needed
+    ];
 
-    // Show a loading message
+    let allPlugins = [];
+    const pluginContainer = document.getElementById('plugin-container');
+    
+    // Show loading message
     if (pluginContainer) {
         pluginContainer.innerHTML = '<p class="loading-message">Loading plugins...</p>';
     }
 
     try {
-        plugins = await fetchPlugins();
+        // Fetch plugins from all repositories
+        for (const repoUrl of pluginRepositories) {
+            const repoPlugins = await fetchPluginsFromRepo(repoUrl);
+            allPlugins = [...allPlugins, ...repoPlugins];
+        }
     } catch (error) {
         console.error('Error fetching plugins:', error);
         if (pluginContainer) {
@@ -19,12 +29,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
 
+    const searchInput = document.getElementById('search');
+    const categorySelect = document.getElementById('category-select');
+
     function displayPlugins(pluginsToDisplay) {
         pluginContainer.innerHTML = '';
         pluginsToDisplay.forEach(plugin => {
             const pluginCard = document.createElement('div');
             pluginCard.className = 'plugin-card';
-            pluginCard.onclick = () => showPluginDetails(plugin.id);
+            pluginCard.onclick = () => showPluginDetails(plugin);
 
             const pluginTitle = document.createElement('h2');
             pluginTitle.textContent = plugin.name;
@@ -41,19 +54,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     function filterPlugins() {
         const searchTerm = searchInput.value.toLowerCase();
         const selectedCategory = categorySelect.value;
-        const filteredPlugins = plugins.filter(plugin => 
-            (plugin.name.toLowerCase().includes(searchTerm) || plugin.description.toLowerCase().includes(searchTerm)) &&
+        const filteredPlugins = allPlugins.filter(plugin => 
+            (plugin.name.toLowerCase().includes(searchTerm) || 
+            plugin.description.toLowerCase().includes(searchTerm)) &&
             (selectedCategory === 'All' || plugin.category === selectedCategory)
         );
         displayPlugins(filteredPlugins);
     }
 
-    function showPluginDetails(pluginId) {
-        const plugin = plugins.find(p => p.id === pluginId);
-        if (plugin) {
-            localStorage.setItem('selectedPlugin', JSON.stringify(plugin));
-            window.location.href = 'plugin.html';
-        }
+    function showPluginDetails(plugin) {
+        localStorage.setItem('selectedPlugin', JSON.stringify(plugin));
+        window.location.href = 'plugin.html';
     }
 
     function toggleTheme() {
@@ -71,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         searchInput.addEventListener('input', filterPlugins);
         categorySelect.addEventListener('change', filterPlugins);
         document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
-        displayPlugins(plugins);
+        displayPlugins(allPlugins);
     }
 
     // Handle Plugin Details Page
@@ -99,12 +110,30 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-// Fetch Plugins from GitHub Repo
-async function fetchPlugins() {
+// Parse GitHub URL to extract owner and repo name
+function parseGitHubUrl(url) {
+    // Remove .git extension if present
+    const cleanedUrl = url.replace(/\.git$/, '');
+    const match = cleanedUrl.match(/github\.com\/([^/]+)\/([^/]+)/);
+    if (match && match[1] && match[2]) {
+        return {
+            owner: match[1],
+            repo: match[2]
+        };
+    }
+    throw new Error(`Invalid GitHub URL: ${url}`);
+}
+
+// Fetch plugins from a specific repository
+async function fetchPluginsFromRepo(repoUrl) {
     try {
-        const pluginsDirUrl = 'https://api.github.com/repos/Project-LetsChat/plugin-repo/contents/plugins';
+        const { owner, repo } = parseGitHubUrl(repoUrl);
+        const pluginsDirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/plugins`;
         const response = await fetch(pluginsDirUrl);
-        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status} for ${repoUrl}`);
+        }
         
         const contents = await response.json();
         const pluginDirs = contents.filter(item => item.type === 'dir');
@@ -112,34 +141,46 @@ async function fetchPlugins() {
         const plugins = [];
         for (const dir of pluginDirs) {
             try {
-                const dataUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/data.json`;
+                const dataUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/plugins/${dir.name}/data.json`;
                 const dataResponse = await fetch(dataUrl);
+                
                 if (!dataResponse.ok) {
-                    console.warn(`Skipping ${dir.name}: Failed to fetch data.json`);
+                    console.warn(`Skipping ${dir.name} in ${owner}/${repo}: Could not fetch data.json`);
                     continue;
                 }
                 
                 // Add JSON parsing validation
                 const text = await dataResponse.text();
-                const pluginData = JSON.parse(text);
+                let pluginData;
+                
+                try {
+                    pluginData = JSON.parse(text);
+                } catch (parseError) {
+                    console.error(`Invalid JSON in ${dataUrl}:`, parseError);
+                    continue;
+                }
                 
                 // Validate required fields
-                if (!pluginData.id || !pluginData.name) {
-                    console.warn(`Skipping ${dir.name}: Missing required fields`);
+                if (!pluginData.name || !pluginData.category) {
+                    console.warn(`Skipping ${dir.name} in ${owner}/${repo}: Missing required fields`);
                     continue;
                 }
 
-                pluginData.downloadUrl = `https://raw.githubusercontent.com/Project-LetsChat/plugin-repo/main/plugins/${dir.name}/plugin.zip`;
+                // Add repo information
+                pluginData.repoOwner = owner;
+                pluginData.repoName = repo;
+                
+                // Construct download URL
+                pluginData.downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/plugins/${dir.name}/plugin.zip`;
+                
                 plugins.push(pluginData);
             } catch (error) {
-                console.error(`Error processing ${dir.name}:`, error);
+                console.error(`Error processing ${dir.name} in ${owner}/${repo}:`, error);
             }
         }
-        // Logs to console that plugins have been loaded.
-        console.log('Loaded plugins:', plugins);
         return plugins;
     } catch (error) {
-        console.error('Failed to fetch plugins:', error);
-        throw error;
+        console.error(`Failed to fetch plugins from ${repoUrl}:`, error);
+        return []; // Return empty array instead of failing completely
     }
 }
