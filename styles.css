@@ -234,7 +234,7 @@ body.dark-theme .back-button:hover {
     background-color: rgba(70, 70, 70, 0.9);
 }
 
-/* Add compatible with styling */
+/* Compatible with styling */
 #plugin-compatible-with {
     color: #666;
     font-size: 0.9em;
@@ -243,4 +243,79 @@ body.dark-theme .back-button:hover {
 
 .dark-theme #plugin-compatible-with {
     color: #aaa;
+}
+
+/* Themes update UI improvements */
+.type-toggle {
+    display: flex;
+    gap: 5px;
+    margin-right: 15px;
+}
+
+.type-toggle button {
+    padding: 5px 10px;
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.type-toggle button.active {
+    background-color: #2196F3;
+    font-weight: bold;
+}
+
+/* Update plugin-card to item-card */
+.item-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    padding: 1rem;
+    width: 300px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card h2 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.item-card p {
+    color: #555;
+}
+
+/* Update plugin-detail to item-detail */
+.item-detail {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 600px;
+}
+
+/* Dark mode updates */
+body.dark-theme .type-toggle button {
+    background-color: #555;
+}
+
+body.dark-theme .type-toggle button.active {
+    background-color: #2196F3;
+}
+
+body.dark-theme .item-card {
+    background-color: rgba(40, 40, 40, 0.9);
+    color: #e0e0e0;
+}
+
+body.dark-theme .item-detail {
+    background-color: rgba(40, 40, 40, 0.9);
 }

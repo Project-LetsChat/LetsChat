@@ -1,69 +1,134 @@
-// scripts.js
 document.addEventListener('DOMContentLoaded', async () => {
-    // Define multiple plugin repositories
-    const pluginRepositories = [
+    // Define multiple repositories
+    const repositories = [
         "https://github.com/Project-LetsChat/plugin-repo.git",
-        "",
         // Add more repositories as needed
     ];
 
-    let allPlugins = [];
-    const pluginContainer = document.getElementById('plugin-container');
-    
+    // Store types
+    const storeTypes = {
+        PLUGINS: 'plugins',
+        THEMES: 'themes'
+    };
+
+    // Global state
+    let currentType = storeTypes.PLUGINS;
+    let allItems = { plugins: [], themes: [] };
+    let currentItems = [];
+    let categories = { plugins: new Set(), themes: new Set() };
+
+    const itemContainer = document.getElementById('item-container');
+    const searchInput = document.getElementById('search');
+    const categorySelect = document.getElementById('category-select');
+    const showPluginsBtn = document.getElementById('show-plugins');
+    const showThemesBtn = document.getElementById('show-themes');
+
     // Show loading message
-    if (pluginContainer) {
-        pluginContainer.innerHTML = '<p class="loading-message">Loading plugins...</p>';
+    if (itemContainer) {
+        itemContainer.innerHTML = '<p class="loading-message">Loading items...</p>';
     }
 
     try {
-        // Fetch plugins from all repositories
-        for (const repoUrl of pluginRepositories) {
-            const repoPlugins = await fetchPluginsFromRepo(repoUrl);
-            allPlugins = [...allPlugins, ...repoPlugins];
+        // Fetch items from all repositories
+        for (const repoUrl of repositories) {
+            const [repoPlugins, repoThemes] = await Promise.all([
+                fetchItemsFromRepo(repoUrl, storeTypes.PLUGINS),
+                fetchItemsFromRepo(repoUrl, storeTypes.THEMES)
+            ]);
+            
+            allItems.plugins = [...allItems.plugins, ...repoPlugins];
+            allItems.themes = [...allItems.themes, ...repoThemes];
+            
+            // Collect categories
+            repoPlugins.forEach(p => categories.plugins.add(p.category));
+            repoThemes.forEach(t => categories.themes.add(t.category));
         }
+        
+        // Set initial view
+        switchType(storeTypes.PLUGINS);
     } catch (error) {
-        console.error('Error fetching plugins:', error);
-        if (pluginContainer) {
-            pluginContainer.innerHTML = '<p class="error-message">Failed to load plugins. Please try again later.</p>';
+        console.error('Error fetching items:', error);
+        if (itemContainer) {
+            itemContainer.innerHTML = '<p class="error-message">Failed to load items. Please try again later.</p>';
         }
         return;
     }
 
-    const searchInput = document.getElementById('search');
-    const categorySelect = document.getElementById('category-select');
+    // Type switching
+    showPluginsBtn.addEventListener('click', () => switchType(storeTypes.PLUGINS));
+    showThemesBtn.addEventListener('click', () => switchType(storeTypes.THEMES));
 
-    function displayPlugins(pluginsToDisplay) {
-        pluginContainer.innerHTML = '';
-        pluginsToDisplay.forEach(plugin => {
-            const pluginCard = document.createElement('div');
-            pluginCard.className = 'plugin-card';
-            pluginCard.onclick = () => showPluginDetails(plugin);
+    function switchType(type) {
+        currentType = type;
+        currentItems = allItems[type];
+        
+        // Update UI
+        showPluginsBtn.classList.toggle('active', type === storeTypes.PLUGINS);
+        showThemesBtn.classList.toggle('active', type === storeTypes.THEMES);
+        
+        // Update categories
+        updateCategoryDropdown();
+        
+        // Display items
+        filterItems();
+    }
 
-            const pluginTitle = document.createElement('h2');
-            pluginTitle.textContent = plugin.name;
-
-            const pluginCategory = document.createElement('p');
-            pluginCategory.textContent = `Category: ${plugin.category}`;
-
-            pluginCard.appendChild(pluginTitle);
-            pluginCard.appendChild(pluginCategory);
-            pluginContainer.appendChild(pluginCard);
+    function updateCategoryDropdown() {
+        categorySelect.innerHTML = '<option value="All">All Categories</option>';
+        
+        const currentCategories = Array.from(categories[currentType]).sort();
+        currentCategories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category;
+            categorySelect.appendChild(option);
         });
     }
 
-    function filterPlugins() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const selectedCategory = categorySelect.value;
-        const filteredPlugins = allPlugins.filter(plugin => 
-            (plugin.name.toLowerCase().includes(searchTerm) || 
-            plugin.description.toLowerCase().includes(searchTerm)) &&
-            (selectedCategory === 'All' || plugin.category === selectedCategory)
-        );
-        displayPlugins(filteredPlugins);
+    function displayItems(itemsToDisplay) {
+        itemContainer.innerHTML = '';
+        
+        if (itemsToDisplay.length === 0) {
+            itemContainer.innerHTML = '<p class="no-items">No items found</p>';
+            return;
+        }
+        
+        itemsToDisplay.forEach(item => {
+            const itemCard = document.createElement('div');
+            itemCard.className = 'item-card';
+            itemCard.onclick = () => showItemDetails(item);
+
+            const itemTitle = document.createElement('h2');
+            itemTitle.textContent = item.name;
+
+            const itemCategory = document.createElement('p');
+            itemCategory.textContent = `Category: ${item.category}`;
+
+            const itemType = document.createElement('p');
+            itemType.textContent = `Type: ${item.type === storeTypes.PLUGINS ? 'Plugin' : 'Theme'}`;
+
+            itemCard.appendChild(itemTitle);
+            itemCard.appendChild(itemCategory);
+            itemCard.appendChild(itemType);
+            itemContainer.appendChild(itemCard);
+        });
     }
 
-    function showPluginDetails(plugin) {
-        localStorage.setItem('selectedPlugin', JSON.stringify(plugin));
+    function filterItems() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const selectedCategory = categorySelect.value;
+        
+        const filteredItems = currentItems.filter(item => 
+            (item.name.toLowerCase().includes(searchTerm) || 
+            item.description.toLowerCase().includes(searchTerm)) &&
+            (selectedCategory === 'All' || item.category === selectedCategory)
+        );
+        
+        displayItems(filteredItems);
+    }
+
+    function showItemDetails(item) {
+        localStorage.setItem('selectedItem', JSON.stringify(item));
         window.location.href = 'plugin.html';
     }
 
@@ -78,32 +143,34 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('theme-toggle').checked = true;
     }
 
-    if (pluginContainer) {
-        searchInput.addEventListener('input', filterPlugins);
-        categorySelect.addEventListener('change', filterPlugins);
+    // Set up event listeners
+    if (itemContainer) {
+        searchInput.addEventListener('input', filterItems);
+        categorySelect.addEventListener('change', filterItems);
         document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
-        displayPlugins(allPlugins);
     }
 
-    // Handle Plugin Details Page
+    // Handle Item Details Page
     if (window.location.pathname.endsWith('plugin.html')) {
-        const selectedPlugin = JSON.parse(localStorage.getItem('selectedPlugin'));
-        if (selectedPlugin) {
-            document.getElementById('plugin-name').textContent = selectedPlugin.name;
-            document.getElementById('plugin-description').textContent = `Description: ${selectedPlugin.description}`;
-            document.getElementById('plugin-version').textContent = `Version: ${selectedPlugin.version}`;
-            document.getElementById('plugin-author').textContent = `Author: ${selectedPlugin.author}`;
-            document.getElementById('plugin-category').textContent = `Category: ${selectedPlugin.category}`;
-            document.getElementById('plugin-license').href = selectedPlugin.licenseUrl;
-            document.getElementById('plugin-license').textContent = `License: ${selectedPlugin.license}`;
-            document.getElementById('plugin-repo').href = selectedPlugin.repoUrl;
+        const selectedItem = JSON.parse(localStorage.getItem('selectedItem'));
+        if (selectedItem) {
+            document.getElementById('item-name').textContent = selectedItem.name;
+            document.getElementById('item-description').textContent = `Description: ${selectedItem.description}`;
+            document.getElementById('item-version').textContent = `Version: ${selectedItem.version}`;
+            document.getElementById('item-author').textContent = `Author: ${selectedItem.author}`;
+            document.getElementById('item-category').textContent = `Category: ${selectedItem.category}`;
+            document.getElementById('item-license').href = selectedItem.licenseUrl;
+            document.getElementById('item-license').textContent = `License: ${selectedItem.license}`;
+            document.getElementById('item-repo').href = selectedItem.repoUrl;
 
             const downloadButton = document.getElementById('download-button');
-            downloadButton.href = selectedPlugin.downloadUrl;
-            downloadButton.setAttribute('download', `${selectedPlugin.name.replace(/\s+/g, '-')}.zip`);
+            downloadButton.href = selectedItem.downloadUrl;
+            downloadButton.setAttribute('download', `${selectedItem.name.replace(/\s+/g, '-')}.zip`);
+            downloadButton.textContent = selectedItem.type === storeTypes.PLUGINS ? 
+                'Download Plugin' : 'Download Theme';
 
-            const compatibleElement = document.getElementById('plugin-compatible-with');
-            compatibleElement.textContent = `Compatible with: ${selectedPlugin.compatibleWith || 'Not specified'}`;
+            const compatibleElement = document.getElementById('item-compatible-with');
+            compatibleElement.textContent = `Compatible with: ${selectedItem.compatibleWith || 'Not specified'}`;
         }
 
         document.getElementById('theme-toggle').addEventListener('change', toggleTheme);
@@ -124,24 +191,29 @@ function parseGitHubUrl(url) {
     throw new Error(`Invalid GitHub URL: ${url}`);
 }
 
-// Fetch plugins from a specific repository
-async function fetchPluginsFromRepo(repoUrl) {
+// Fetch items from a specific repository and type
+async function fetchItemsFromRepo(repoUrl, type) {
     try {
         const { owner, repo } = parseGitHubUrl(repoUrl);
-        const pluginsDirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/plugins`;
-        const response = await fetch(pluginsDirUrl);
+        const itemsDirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${type}`;
+        const response = await fetch(itemsDirUrl);
         
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status} for ${repoUrl}`);
+            console.warn(`No ${type} found in ${owner}/${repo}`);
+            return [];
         }
         
         const contents = await response.json();
-        const pluginDirs = contents.filter(item => item.type === 'dir');
+        
+        // Skip if it's a file instead of directory
+        if (contents.type === 'file') return [];
+        
+        const itemDirs = contents.filter(item => item.type === 'dir');
 
-        const plugins = [];
-        for (const dir of pluginDirs) {
+        const items = [];
+        for (const dir of itemDirs) {
             try {
-                const dataUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/plugins/${dir.name}/data.json`;
+                const dataUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/${type}/${dir.name}/data.json`;
                 const dataResponse = await fetch(dataUrl);
                 
                 if (!dataResponse.ok) {
@@ -149,38 +221,40 @@ async function fetchPluginsFromRepo(repoUrl) {
                     continue;
                 }
                 
-                // Add JSON parsing validation
+                // Parse JSON
                 const text = await dataResponse.text();
-                let pluginData;
+                let itemData;
                 
                 try {
-                    pluginData = JSON.parse(text);
+                    itemData = JSON.parse(text);
                 } catch (parseError) {
                     console.error(`Invalid JSON in ${dataUrl}:`, parseError);
                     continue;
                 }
                 
                 // Validate required fields
-                if (!pluginData.name || !pluginData.category) {
+                if (!itemData.name || !itemData.category) {
                     console.warn(`Skipping ${dir.name} in ${owner}/${repo}: Missing required fields`);
                     continue;
                 }
 
-                // Add repo information
-                pluginData.repoOwner = owner;
-                pluginData.repoName = repo;
+                // Add repo and type information
+                itemData.repoOwner = owner;
+                itemData.repoName = repo;
+                itemData.type = type;
                 
                 // Construct download URL
-                pluginData.downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/plugins/${dir.name}/plugin.zip`;
+                const zipFileName = type === 'plugins' ? 'plugin.zip' : 'theme.zip';
+                itemData.downloadUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/${type}/${dir.name}/${zipFileName}`;
                 
-                plugins.push(pluginData);
+                items.push(itemData);
             } catch (error) {
                 console.error(`Error processing ${dir.name} in ${owner}/${repo}:`, error);
             }
         }
-        return plugins;
+        return items;
     } catch (error) {
-        console.error(`Failed to fetch plugins from ${repoUrl}:`, error);
-        return []; // Return empty array instead of failing completely
+        console.error(`Failed to fetch ${type} from ${repoUrl}:`, error);
+        return [];
     }
 }
